@@ -51,7 +51,8 @@ public class AtualizarDados extends javax.swing.JFrame {
         jButtonVoltar = new javax.swing.JButton();
         jLabel9 = new javax.swing.JLabel();
 
-        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
+        setTitle("Atualizar Dados");
         setBackground(new java.awt.Color(255, 255, 255));
 
         jLabel1.setText("Matricula do Usuario");

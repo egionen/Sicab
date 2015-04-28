@@ -25,18 +25,17 @@ import javax.swing.table.TableRowSorter;
  * @author Victor
  */
 public class Busca extends javax.swing.JFrame {
+
     private Object jTextFieldTelefone1;
     private Object jTextFieldBuscaActionPerformed;
     private Object jTextFieldBuscaAction;
-   
-   
+
     /**
      * Creates new form Busca
      */
     public Busca() {
         initComponents();
-        
-        
+
     }
 
     /**
@@ -73,7 +72,8 @@ public class Busca extends javax.swing.JFrame {
 
         popupMenu1.setLabel("popupMenu1");
 
-        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
+        setTitle("Localizar");
         setBackground(new java.awt.Color(255, 255, 255));
         setName("SICA"); // NOI18N
 
@@ -190,8 +190,23 @@ public class Busca extends javax.swing.JFrame {
     }//GEN-LAST:event_jButton1ActionPerformed
 
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
-        UsuarioDAO.pesquisarClientes(jTextFieldBusca.getText());
-        JOptionPane.showMessageDialog(jTextFieldBusca, "Achamos o Cliente!");
+        try {
+            
+            Class.forName("com.mysql.jdbc.Driver");          
+            Connection conn = DriverManager.getConnection("jdbc:mysql://db4free.net:3306/sica?zeroDateTimeBehavior=convertToNull", "sica", "1122448816");
+
+            java.sql.Statement st = conn.createStatement();
+            st.executeQuery("Select * FROM Usuarios WHERE telefone1='" + this.jTextFieldBusca.getText() + "'");
+            ResultSet rs = st.getResultSet();
+
+            while (rs.next()) {
+                JOptionPane.showMessageDialog(rootPane,"\nMatricula = " + rs.getString("matricula") + "\nNome = " + rs.getString("nome") + "\nCPF = " + rs.getString("cpf")
+                + "\nPlano = " + rs.getString("plano") + "\nTelefone = " + rs.getString("telefone1") + "\nTelefone = " + rs.getString("telefone2") + "\nEndereço = " + rs.getString("endereço"));
+            }
+
+        } catch (SQLException | ClassNotFoundException e) {
+            JOptionPane.showMessageDialog(rootPane, e);
+        }
     }//GEN-LAST:event_jButton2ActionPerformed
 
     private void jTextFieldBuscaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextFieldBuscaActionPerformed
@@ -252,5 +267,4 @@ public class Busca extends javax.swing.JFrame {
     private org.jdesktop.beansbinding.BindingGroup bindingGroup;
     // End of variables declaration//GEN-END:variables
 
-    
 }
