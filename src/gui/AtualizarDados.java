@@ -68,6 +68,12 @@ public class AtualizarDados extends javax.swing.JFrame {
 
         jLabel7.setText("Novo Plano");
 
+        jTextFieldMatricula.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jTextFieldMatriculaActionPerformed(evt);
+            }
+        });
+
         jLabel8.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
         jLabel8.setText("Atualizar Dados");
 
@@ -204,8 +210,8 @@ public class AtualizarDados extends javax.swing.JFrame {
             //Executa a query de atualização
             java.sql.Statement st = conn.createStatement();
             st.executeUpdate("UPDATE Usuarios SET nome='"
-                    + this.jTextFieldNome.getText() + "',cpf='"
-                    + this.jTextFieldPlano.getText() + "',plano='"
+                    + this.jTextFieldNome.getText() + "',plano='"
+                    + this.jTextFieldPlano.getText() + "',cpf='"
                     + this.jTextFieldCpf.getText() + "',telefone1='"
                     + this.jTextFieldTelefone1.getText() + "',telefone2='"
                     + this.jTextFieldTelefone2.getText() + "',endereço='"
@@ -220,6 +226,10 @@ public class AtualizarDados extends javax.swing.JFrame {
     private void jButtonVoltarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonVoltarActionPerformed
         this.dispose();
     }//GEN-LAST:event_jButtonVoltarActionPerformed
+
+    private void jTextFieldMatriculaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextFieldMatriculaActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jTextFieldMatriculaActionPerformed
 
     /**
      * @param args the command line arguments

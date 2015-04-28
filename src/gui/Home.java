@@ -39,6 +39,7 @@ public class Home extends javax.swing.JFrame {
         jButtonAtualizar = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setName("SICA"); // NOI18N
 
         jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagens/Logo.png"))); // NOI18N
 
@@ -77,7 +78,7 @@ public class Home extends javax.swing.JFrame {
             }
         });
 
-        jButtonLocalizar1.setText("Exlusao");
+        jButtonLocalizar1.setText("Exclusao");
         jButtonLocalizar1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButtonLocalizar1ActionPerformed(evt);

@@ -39,6 +39,8 @@ import javax.xml.bind.annotation.XmlRootElement;
     @NamedQuery(name = "Usuarios.findByTelefone1", query = "SELECT u FROM Usuarios u WHERE u.telefone1 = :telefone1"),
     @NamedQuery(name = "Usuarios.findByTelefone2", query = "SELECT u FROM Usuarios u WHERE u.telefone2 = :telefone2")})
 public class Usuarios implements Serializable {
+    public static Object ResultSet;
+
     @Transient
     private PropertyChangeSupport changeSupport = new PropertyChangeSupport(this);
     private static final long serialVersionUID = 1L;
@@ -177,5 +179,6 @@ public class Usuarios implements Serializable {
     public void removePropertyChangeListener(PropertyChangeListener listener) {
         changeSupport.removePropertyChangeListener(listener);
     }
-    
+
+
 }

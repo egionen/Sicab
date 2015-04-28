@@ -7,6 +7,9 @@ package gui;
 
 import controle.Usuarios;
 import dao.UsuarioDAO;
+import java.sql.SQLException;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 import javax.swing.JOptionPane;
 
@@ -73,6 +76,12 @@ public class Cadastro extends javax.swing.JFrame {
 
         jLabel7.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         jLabel7.setText("Endereço");
+
+        jTextFieldNome.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jTextFieldNomeActionPerformed(evt);
+            }
+        });
 
         jButtonCadastrar.setText("Cadastrar!");
         jButtonCadastrar.addActionListener(new java.awt.event.ActionListener() {
@@ -219,7 +228,11 @@ public class Cadastro extends javax.swing.JFrame {
 
             // instanciando a classe UsuarioDAO do pacote dao e criando seu objeto dao
             UsuarioDAO dao = new UsuarioDAO();
-            dao.adiciona(usuarios);
+            try {
+                dao.adicionarClientes(usuarios);
+            } catch (SQLException ex) {
+                Logger.getLogger(Cadastro.class.getName()).log(Level.SEVERE, null, ex);
+            }
             JOptionPane.showMessageDialog(null, "Usuário " + jTextFieldNome.getText() + " inserido com sucesso! ");
         }
 
@@ -231,6 +244,10 @@ public class Cadastro extends javax.swing.JFrame {
         jTextFieldTelefone2.setText("");
         jTextFieldEndereco.setText("");
     }//GEN-LAST:event_jButtonCadastrarActionPerformed
+
+    private void jTextFieldNomeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextFieldNomeActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jTextFieldNomeActionPerformed
 
     /**
      * @param args the command line arguments

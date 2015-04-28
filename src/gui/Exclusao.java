@@ -63,6 +63,12 @@ public class Exclusao extends javax.swing.JFrame {
 
         jLabel2.setText("Telefone");
 
+        jTextFieldTelefone1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jTextFieldTelefone1ActionPerformed(evt);
+            }
+        });
+
         jLabel3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagens/logo1.png"))); // NOI18N
         jLabel3.setText("jLabel3");
 
@@ -123,6 +129,7 @@ public class Exclusao extends javax.swing.JFrame {
             //Executa a query de exclusão
             java.sql.Statement st = conn.createStatement();
             st.executeUpdate("DELETE FROM Usuarios WHERE telefone1='" + this.jTextFieldTelefone1.getText() + "'");
+            //st.executeUpdate(this.jTextFieldTelefone1.getText() + "DELETE FROM Usuarios WHERE telefone1='" + "'");
             JOptionPane.showMessageDialog(rootPane, "Aluno excluído");
         } catch (SQLException | ClassNotFoundException e) {
             JOptionPane.showMessageDialog(rootPane, e);}
@@ -131,6 +138,10 @@ public class Exclusao extends javax.swing.JFrame {
     private void jButtonVoltarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonVoltarActionPerformed
         this.dispose();
     }//GEN-LAST:event_jButtonVoltarActionPerformed
+
+    private void jTextFieldTelefone1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextFieldTelefone1ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jTextFieldTelefone1ActionPerformed
 
     /**
      * @param args the command line arguments
