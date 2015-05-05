@@ -9,20 +9,13 @@ import controle.Usuarios;
 import dao.UsuarioDAO;
 import java.sql.Connection;
 import java.sql.DriverManager;
-import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
-import java.util.logging.Level;
-import java.util.logging.Logger;
 import javax.swing.JOptionPane;
-import javax.swing.RowFilter;
-import javax.swing.table.DefaultTableModel;
-import javax.swing.table.TableModel;
-import javax.swing.table.TableRowSorter;
 
 /**
  *
- * @author Victor
+ * @author Victor & Diego
  */
 public class Busca extends javax.swing.JFrame {
 
@@ -187,23 +180,34 @@ public class Busca extends javax.swing.JFrame {
     }//GEN-LAST:event_jButton1ActionPerformed
 
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
-        try {
-            
-            Class.forName("com.mysql.jdbc.Driver");          
-            Connection conn = DriverManager.getConnection("jdbc:mysql://db4free.net:3306/sica?zeroDateTimeBehavior=convertToNull", "sica", "1122448816");
-
-            java.sql.Statement st = conn.createStatement();
-            st.executeQuery("Select * FROM Usuarios WHERE telefone1='" + this.jTextFieldBusca.getText() + "'");
-            ResultSet rs = st.getResultSet();
-
-            while (rs.next()) {
-                JOptionPane.showMessageDialog(rootPane,"\nMatricula = " + rs.getString("matricula") + "\nNome = " + rs.getString("nome") + "\nCPF = " + rs.getString("cpf")
-                + "\nPlano = " + rs.getString("plano") + "\nTelefone = " + rs.getString("telefone1") + "\nTelefone = " + rs.getString("telefone2") + "\nEndereço = " + rs.getString("endereço"));
-            }
-
-        } catch (SQLException | ClassNotFoundException e) {
-            JOptionPane.showMessageDialog(rootPane, e);
-        }
+        entityManager = java.beans.Beans.isDesignTime() ? null : javax.persistence.Persistence.createEntityManagerFactory("Sicab0.5PU").createEntityManager();
+        usuariosQuery = java.beans.Beans.isDesignTime() ? null : entityManager.createQuery("SELECT u FROM Usuarios u WHERE u.telefone1 = \""+ jTextFieldBusca.getText()+"\" OR u.telefone2 = \""+ jTextFieldBusca.getText()+"\"");
+        usuariosList = java.beans.Beans.isDesignTime() ? java.util.Collections.emptyList() : usuariosQuery.getResultList();
+        org.jdesktop.swingbinding.JTableBinding jTableBinding = org.jdesktop.swingbinding.SwingBindings.createJTableBinding(org.jdesktop.beansbinding.AutoBinding.UpdateStrategy.READ_WRITE, usuariosList, jTable1);
+        org.jdesktop.swingbinding.JTableBinding.ColumnBinding columnBinding = jTableBinding.addColumnBinding(org.jdesktop.beansbinding.ELProperty.create("${matricula}"));
+        columnBinding.setColumnName("Matricula");
+        columnBinding.setColumnClass(Short.class);
+        columnBinding = jTableBinding.addColumnBinding(org.jdesktop.beansbinding.ELProperty.create("${nome}"));
+        columnBinding.setColumnName("Nome");
+        columnBinding.setColumnClass(String.class);
+        columnBinding = jTableBinding.addColumnBinding(org.jdesktop.beansbinding.ELProperty.create("${cpf}"));
+        columnBinding.setColumnName("Cpf");
+        columnBinding.setColumnClass(String.class);
+        columnBinding = jTableBinding.addColumnBinding(org.jdesktop.beansbinding.ELProperty.create("${plano}"));
+        columnBinding.setColumnName("Plano");
+        columnBinding.setColumnClass(String.class);
+        columnBinding = jTableBinding.addColumnBinding(org.jdesktop.beansbinding.ELProperty.create("${telefone1}"));
+        columnBinding.setColumnName("Telefone1");
+        columnBinding.setColumnClass(String.class);
+        columnBinding = jTableBinding.addColumnBinding(org.jdesktop.beansbinding.ELProperty.create("${telefone2}"));
+        columnBinding.setColumnName("Telefone2");
+        columnBinding.setColumnClass(String.class);
+        columnBinding = jTableBinding.addColumnBinding(org.jdesktop.beansbinding.ELProperty.create("${endereço}"));
+        columnBinding.setColumnName("Endereço");
+        columnBinding.setColumnClass(String.class);
+        bindingGroup.addBinding(jTableBinding);
+        jTableBinding.bind();
+        jScrollPane1.setViewportView(jTable1);
     }//GEN-LAST:event_jButton2ActionPerformed
 
     private void jTextFieldBuscaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextFieldBuscaActionPerformed
