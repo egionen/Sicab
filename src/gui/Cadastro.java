@@ -44,13 +44,6 @@ public class Cadastro extends javax.swing.JFrame {
         jLabel7 = new javax.swing.JLabel();
         jTextFieldNome = new javax.swing.JTextField();
         jTextFieldCpf = new javax.swing.JTextField();
-        try{
-            javax.swing.text.MaskFormatter cpf = new javax.swing.text.MaskFormatter("###.###.###-##");
-            jTextFieldCpf =  new javax.swing.JFormattedTextField(cpf);
-        }
-        catch(Exception e){
-        }
-
         jTextFieldPlano = new javax.swing.JTextField();
 
         jTextFieldTelefone1 = new javax.swing.JTextField();
@@ -117,6 +110,12 @@ public class Cadastro extends javax.swing.JFrame {
         jTextFieldCpf.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyPressed(java.awt.event.KeyEvent evt) {
                 jTextFieldCpfKeyPressed(evt);
+            }
+        });
+
+        jTextFieldTelefone1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jTextFieldTelefone1ActionPerformed(evt);
             }
         });
 
@@ -258,18 +257,29 @@ public class Cadastro extends javax.swing.JFrame {
         usuarios.setTelefone2(jTextFieldTelefone2.getText());
         usuarios.setEndereço(jTextFieldEndereco.getText());
 
-        if ((jTextFieldNome.getText().isEmpty()) || (jTextFieldPlano.getText().isEmpty()) || (jTextFieldCpf.getText().isEmpty()) || (jTextFieldTelefone1.getText().isEmpty()) || (jTextFieldEndereco.getText().isEmpty())) {
-            JOptionPane.showMessageDialog(null, "Os campos não podem retornar vazios");
+        String cpf = null;
+        
+       
+        if (controle.ValidaCPF.isCPF(cpf) == false) {
+
+            JOptionPane.showMessageDialog(rootPane, "CPF Inválido");
+
         } else {
 
-            // instanciando a classe UsuarioDAO do pacote dao e criando seu objeto dao
-            UsuarioDAO dao = new UsuarioDAO();
-            try {
-                dao.adicionarClientes(usuarios);
-            } catch (SQLException ex) {
-                Logger.getLogger(Cadastro.class.getName()).log(Level.SEVERE, null, ex);
+            if ((jTextFieldNome.getText().isEmpty()) || (jTextFieldPlano.getText().isEmpty()) || (jTextFieldCpf.getText().isEmpty()) || (jTextFieldTelefone1.getText().isEmpty()) || (jTextFieldEndereco.getText().isEmpty())) {
+
+                JOptionPane.showMessageDialog(null, "Os campos não podem retornar vazios");
+            } else {
+
+                // instanciando a classe UsuarioDAO do pacote dao e criando seu objeto dao
+                UsuarioDAO dao = new UsuarioDAO();
+                try {
+                    dao.adicionarClientes(usuarios);
+                } catch (SQLException ex) {
+                    Logger.getLogger(Cadastro.class.getName()).log(Level.SEVERE, null, ex);
+                }
+                JOptionPane.showMessageDialog(null, "Usuário " + jTextFieldNome.getText() + " inserido com sucesso! ");
             }
-            JOptionPane.showMessageDialog(null, "Usuário " + jTextFieldNome.getText() + " inserido com sucesso! ");
         }
 
         jTextFieldNome.setText("");
@@ -278,6 +288,7 @@ public class Cadastro extends javax.swing.JFrame {
         jTextFieldTelefone1.setText("");
         jTextFieldTelefone2.setText("");
         jTextFieldEndereco.setText("");
+
     }//GEN-LAST:event_jButtonCadastrarActionPerformed
 
     private void jTextFieldNomeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextFieldNomeActionPerformed
@@ -285,7 +296,7 @@ public class Cadastro extends javax.swing.JFrame {
     }//GEN-LAST:event_jTextFieldNomeActionPerformed
 
     private void jTextFieldCpfActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextFieldCpfActionPerformed
-       
+
 
     }//GEN-LAST:event_jTextFieldCpfActionPerformed
 
@@ -301,6 +312,10 @@ public class Cadastro extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_jTextFieldCpfKeyPressed
 
+    private void jTextFieldTelefone1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextFieldTelefone1ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jTextFieldTelefone1ActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -315,16 +330,21 @@ public class Cadastro extends javax.swing.JFrame {
                 if ("Nimbus".equals(info.getName())) {
                     javax.swing.UIManager.setLookAndFeel(info.getClassName());
                     break;
+
                 }
             }
         } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(Cadastro.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(Cadastro.class
+                    .getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(Cadastro.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(Cadastro.class
+                    .getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(Cadastro.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(Cadastro.class
+                    .getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(Cadastro.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(Cadastro.class
+                    .getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
         //</editor-fold>
 
