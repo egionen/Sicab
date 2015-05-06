@@ -204,12 +204,12 @@
         <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jTextFieldCpfActionPerformed"/>
       </Events>
       <AuxValues>
-        <AuxValue name="JavaCodeGenerator_CreateCodePost" type="java.lang.String" value=" try {&#xa;            javax.swing.text.MaskFormatter cpf = new javax.swing.text.MaskFormatter(&quot;###.###.###-##&quot;);&#xa;&#xa;            jTextFieldCpf = new javax.swing.JFormattedTextField(cpf);&#xa;        } catch (Exception e) {&#xa;        }&#xa;"/>
+        <AuxValue name="JavaCodeGenerator_CreateCodePost" type="java.lang.String" value="try{&#xa;javax.swing.text.MaskFormatter cpf = new javax.swing.text.MaskFormatter(&quot;###########&quot;);&#xa;jTextFieldCpf =  new javax.swing.JFormattedTextField(cpf);&#xa;}&#xa;catch(Exception e){&#xa;}&#xa;&#xa;"/>
       </AuxValues>
     </Component>
     <Component class="javax.swing.JTextField" name="jTextFieldPlano">
       <AuxValues>
-        <AuxValue name="JavaCodeGenerator_CreateCodePost" type="java.lang.String" value="try{&#xd;&#xa;javax.swing.text.MaskFormatter plano = new javax.swing.text.MaskFormatter(&quot;???????&quot;);&#xd;&#xa;jTextFieldPlano =  new javax.swing.JFormattedTextField(plano);&#xd;&#xa;}&#xd;&#xa;catch(Exception e){&#xd;&#xa;}&#xd;&#xa;"/>
+        <AuxValue name="JavaCodeGenerator_CreateCodePost" type="java.lang.String" value="&#xd;&#xa;"/>
       </AuxValues>
     </Component>
     <Component class="javax.swing.JTextField" name="jTextFieldTelefone1">

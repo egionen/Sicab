@@ -44,19 +44,15 @@ public class Cadastro extends javax.swing.JFrame {
         jLabel7 = new javax.swing.JLabel();
         jTextFieldNome = new javax.swing.JTextField();
         jTextFieldCpf = new javax.swing.JTextField();
-        try {
-            javax.swing.text.MaskFormatter cpf = new javax.swing.text.MaskFormatter("###.###.###-##");
-
-            jTextFieldCpf = new javax.swing.JFormattedTextField(cpf);
-        } catch (Exception e) {
-        }
-        jTextFieldPlano = new javax.swing.JTextField();
         try{
-            javax.swing.text.MaskFormatter plano = new javax.swing.text.MaskFormatter("???????");
-            jTextFieldPlano =  new javax.swing.JFormattedTextField(plano);
+            javax.swing.text.MaskFormatter cpf = new javax.swing.text.MaskFormatter("###########");
+            jTextFieldCpf =  new javax.swing.JFormattedTextField(cpf);
         }
         catch(Exception e){
         }
+
+        jTextFieldPlano = new javax.swing.JTextField();
+
         jTextFieldTelefone1 = new javax.swing.JTextField();
         try{
             javax.swing.text.MaskFormatter telefone1 = new javax.swing.text.MaskFormatter("#### - ####");
@@ -284,7 +280,17 @@ public class Cadastro extends javax.swing.JFrame {
     }//GEN-LAST:event_jTextFieldNomeActionPerformed
 
     private void jTextFieldCpfActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextFieldCpfActionPerformed
+        String cpf;
 
+        cpf = String.valueOf(jTextFieldCpf);
+        if (controle.ValidaCPF.isCPF(cpf) == false) {
+            JOptionPane.showMessageDialog(rootPane, "Cpf Inválido!");
+            
+        } else {
+            
+            jTextFieldCpf.setText(cpf.subSequence(0,3) + "." + cpf.substring(3, 6) + "." + cpf.substring(6,9) + "-" + cpf.substring(9,11));
+            
+        }
 
     }//GEN-LAST:event_jTextFieldCpfActionPerformed
 
