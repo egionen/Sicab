@@ -44,9 +44,33 @@ public class Cadastro extends javax.swing.JFrame {
         jLabel7 = new javax.swing.JLabel();
         jTextFieldNome = new javax.swing.JTextField();
         jTextFieldCpf = new javax.swing.JTextField();
+        try {
+            javax.swing.text.MaskFormatter cpf = new javax.swing.text.MaskFormatter("###.###.###-##");
+
+            jTextFieldCpf = new javax.swing.JFormattedTextField(cpf);
+        } catch (Exception e) {
+        }
         jTextFieldPlano = new javax.swing.JTextField();
+        try{
+            javax.swing.text.MaskFormatter plano = new javax.swing.text.MaskFormatter("???????");
+            jTextFieldPlano =  new javax.swing.JFormattedTextField(plano);
+        }
+        catch(Exception e){
+        }
         jTextFieldTelefone1 = new javax.swing.JTextField();
+        try{
+            javax.swing.text.MaskFormatter telefone1 = new javax.swing.text.MaskFormatter("#### - ####");
+            jTextFieldTelefone1 =  new javax.swing.JFormattedTextField(telefone1);
+        }
+        catch(Exception e){
+        }
         jTextFieldTelefone2 = new javax.swing.JTextField();
+        try{
+            javax.swing.text.MaskFormatter telefone2 = new javax.swing.text.MaskFormatter("#### - ####");
+            jTextFieldTelefone2 =  new javax.swing.JFormattedTextField(telefone2);
+        }
+        catch(Exception e){
+        }
         jTextFieldEndereco = new javax.swing.JTextField();
         jButtonCadastrar = new javax.swing.JButton();
         jButtonVoltar = new javax.swing.JButton();
@@ -81,6 +105,17 @@ public class Cadastro extends javax.swing.JFrame {
         jTextFieldNome.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jTextFieldNomeActionPerformed(evt);
+            }
+        });
+        jTextFieldNome.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                jTextFieldNomeKeyTyped(evt);
+            }
+        });
+
+        jTextFieldCpf.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jTextFieldCpfActionPerformed(evt);
             }
         });
 
@@ -222,8 +257,7 @@ public class Cadastro extends javax.swing.JFrame {
         usuarios.setTelefone2(jTextFieldTelefone2.getText());
         usuarios.setEndereço(jTextFieldEndereco.getText());
 
-
-        if ((jTextFieldNome.getText().isEmpty()) || (jTextFieldPlano.getText().isEmpty()) || (jTextFieldCpf.getText().isEmpty()) || (jTextFieldTelefone1.getText().isEmpty())|| (jTextFieldEndereco.getText().isEmpty())) {
+        if ((jTextFieldNome.getText().isEmpty()) || (jTextFieldPlano.getText().isEmpty()) || (jTextFieldCpf.getText().isEmpty()) || (jTextFieldTelefone1.getText().isEmpty()) || (jTextFieldEndereco.getText().isEmpty())) {
             JOptionPane.showMessageDialog(null, "Os campos não podem retornar vazios");
         } else {
 
@@ -237,7 +271,6 @@ public class Cadastro extends javax.swing.JFrame {
             JOptionPane.showMessageDialog(null, "Usuário " + jTextFieldNome.getText() + " inserido com sucesso! ");
         }
 
-
         jTextFieldNome.setText("");
         jTextFieldCpf.setText("");
         jTextFieldPlano.setText("");
@@ -249,6 +282,19 @@ public class Cadastro extends javax.swing.JFrame {
     private void jTextFieldNomeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextFieldNomeActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_jTextFieldNomeActionPerformed
+
+    private void jTextFieldCpfActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextFieldCpfActionPerformed
+
+
+    }//GEN-LAST:event_jTextFieldCpfActionPerformed
+
+    private void jTextFieldNomeKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jTextFieldNomeKeyTyped
+        String caracteres = "0987654321";
+        if(caracteres.contains(evt.getKeyChar()+"")){
+        evt.consume();
+        }
+       
+    }//GEN-LAST:event_jTextFieldNomeKeyTyped
 
     /**
      * @param args the command line arguments

@@ -196,15 +196,31 @@
     <Component class="javax.swing.JTextField" name="jTextFieldNome">
       <Events>
         <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jTextFieldNomeActionPerformed"/>
+        <EventHandler event="keyTyped" listener="java.awt.event.KeyListener" parameters="java.awt.event.KeyEvent" handler="jTextFieldNomeKeyTyped"/>
       </Events>
     </Component>
     <Component class="javax.swing.JTextField" name="jTextFieldCpf">
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jTextFieldCpfActionPerformed"/>
+      </Events>
+      <AuxValues>
+        <AuxValue name="JavaCodeGenerator_CreateCodePost" type="java.lang.String" value=" try {&#xa;            javax.swing.text.MaskFormatter cpf = new javax.swing.text.MaskFormatter(&quot;###.###.###-##&quot;);&#xa;&#xa;            jTextFieldCpf = new javax.swing.JFormattedTextField(cpf);&#xa;        } catch (Exception e) {&#xa;        }&#xa;"/>
+      </AuxValues>
     </Component>
     <Component class="javax.swing.JTextField" name="jTextFieldPlano">
+      <AuxValues>
+        <AuxValue name="JavaCodeGenerator_CreateCodePost" type="java.lang.String" value="try{&#xd;&#xa;javax.swing.text.MaskFormatter plano = new javax.swing.text.MaskFormatter(&quot;???????&quot;);&#xd;&#xa;jTextFieldPlano =  new javax.swing.JFormattedTextField(plano);&#xd;&#xa;}&#xd;&#xa;catch(Exception e){&#xd;&#xa;}&#xd;&#xa;"/>
+      </AuxValues>
     </Component>
     <Component class="javax.swing.JTextField" name="jTextFieldTelefone1">
+      <AuxValues>
+        <AuxValue name="JavaCodeGenerator_CreateCodePost" type="java.lang.String" value="try{&#xd;&#xa;javax.swing.text.MaskFormatter telefone1 = new javax.swing.text.MaskFormatter(&quot;#### - ####&quot;);&#xd;&#xa;jTextFieldTelefone1 =  new javax.swing.JFormattedTextField(telefone1);&#xd;&#xa;}&#xd;&#xa;catch(Exception e){&#xd;&#xa;}&#xd;&#xa;"/>
+      </AuxValues>
     </Component>
     <Component class="javax.swing.JTextField" name="jTextFieldTelefone2">
+      <AuxValues>
+        <AuxValue name="JavaCodeGenerator_CreateCodePost" type="java.lang.String" value="try{&#xd;&#xa;javax.swing.text.MaskFormatter telefone2 = new javax.swing.text.MaskFormatter(&quot;#### - ####&quot;);&#xd;&#xa;jTextFieldTelefone2 =  new javax.swing.JFormattedTextField(telefone2);&#xd;&#xa;}&#xd;&#xa;catch(Exception e){&#xd;&#xa;}&#xd;&#xa;"/>
+      </AuxValues>
     </Component>
     <Component class="javax.swing.JTextField" name="jTextFieldEndereco">
     </Component>
