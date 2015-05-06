@@ -51,6 +51,12 @@ public class Busca extends javax.swing.JFrame {
         jScrollPane1 = new javax.swing.JScrollPane();
         jTable1 = new javax.swing.JTable();
         jTextFieldBusca = new javax.swing.JTextField();
+        try{
+            javax.swing.text.MaskFormatter telefone = new javax.swing.text.MaskFormatter("#### - ####");
+            jTextFieldBusca =  new javax.swing.JFormattedTextField(telefone);
+        }
+        catch(Exception e){
+        }
         jLabel2 = new javax.swing.JLabel();
         jButton1 = new javax.swing.JButton();
         jLabel1 = new javax.swing.JLabel();
