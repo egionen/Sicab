@@ -7,6 +7,7 @@ package gui;
 
 import java.sql.Connection;
 import java.sql.DriverManager;
+import java.sql.ResultSet;
 import java.sql.SQLException;
 import javax.swing.JOptionPane;
 
@@ -39,7 +40,7 @@ public class AtualizarDados extends javax.swing.JFrame {
         jLabel5 = new javax.swing.JLabel();
         jLabel6 = new javax.swing.JLabel();
         jLabel7 = new javax.swing.JLabel();
-        jTextFieldMatricula = new javax.swing.JTextField();
+        jTextFieldBusca = new javax.swing.JTextField();
         jTextFieldNome = new javax.swing.JTextField();
         jTextFieldCpf = new javax.swing.JTextField();
         jTextFieldTelefone1 = new javax.swing.JTextField();
@@ -50,12 +51,13 @@ public class AtualizarDados extends javax.swing.JFrame {
         jButtonAtualizar = new javax.swing.JButton();
         jButtonVoltar = new javax.swing.JButton();
         jLabel9 = new javax.swing.JLabel();
+        jButtonPesquisar = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         setTitle("Atualizar Dados");
         setBackground(new java.awt.Color(255, 255, 255));
 
-        jLabel1.setText("Matricula do Usuario");
+        jLabel1.setText("Telefone do Usuario");
 
         jLabel2.setText("Novo Cpf");
 
@@ -69,11 +71,23 @@ public class AtualizarDados extends javax.swing.JFrame {
 
         jLabel7.setText("Novo Plano");
 
-        jTextFieldMatricula.addActionListener(new java.awt.event.ActionListener() {
+        jTextFieldBusca.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jTextFieldMatriculaActionPerformed(evt);
+                jTextFieldBuscaActionPerformed(evt);
             }
         });
+
+        jTextFieldNome.setEnabled(false);
+
+        jTextFieldCpf.setEnabled(false);
+
+        jTextFieldTelefone1.setEnabled(false);
+
+        jTextFieldTelefone2.setEnabled(false);
+
+        jTextFieldEndereco.setEnabled(false);
+
+        jTextFieldPlano.setEnabled(false);
 
         jLabel8.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
         jLabel8.setText("Atualizar Dados");
@@ -95,6 +109,13 @@ public class AtualizarDados extends javax.swing.JFrame {
         jLabel9.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagens/logo1.png"))); // NOI18N
         jLabel9.setText("jLabel9");
 
+        jButtonPesquisar.setText("Procurar");
+        jButtonPesquisar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButtonPesquisarActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -111,7 +132,7 @@ public class AtualizarDados extends javax.swing.JFrame {
                             .addGroup(layout.createSequentialGroup()
                                 .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 131, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(jTextFieldMatricula, javax.swing.GroupLayout.PREFERRED_SIZE, 320, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addComponent(jTextFieldBusca, javax.swing.GroupLayout.PREFERRED_SIZE, 320, javax.swing.GroupLayout.PREFERRED_SIZE))
                             .addGroup(layout.createSequentialGroup()
                                 .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 131, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
@@ -136,6 +157,8 @@ public class AtualizarDados extends javax.swing.JFrame {
                                 .addComponent(jLabel7, javax.swing.GroupLayout.PREFERRED_SIZE, 131, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                 .addComponent(jTextFieldPlano, javax.swing.GroupLayout.PREFERRED_SIZE, 326, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addGap(34, 34, 34)
+                        .addComponent(jButtonPesquisar)
                         .addGap(0, 0, Short.MAX_VALUE)))
                 .addContainerGap())
             .addGroup(layout.createSequentialGroup()
@@ -154,7 +177,9 @@ public class AtualizarDados extends javax.swing.JFrame {
                     .addComponent(jLabel9, javax.swing.GroupLayout.PREFERRED_SIZE, 55, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(jTextFieldMatricula, javax.swing.GroupLayout.DEFAULT_SIZE, 37, Short.MAX_VALUE)
+                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                        .addComponent(jTextFieldBusca, javax.swing.GroupLayout.DEFAULT_SIZE, 37, Short.MAX_VALUE)
+                        .addComponent(jButtonPesquisar))
                     .addComponent(jLabel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
@@ -201,13 +226,13 @@ public class AtualizarDados extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void jButtonAtualizarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonAtualizarActionPerformed
-       try {
+        try {
             //Registra JDBC driver
             Class.forName("com.mysql.jdbc.Driver");
- 
+
             //Abrindo a conexão
             Connection conn = DriverManager.getConnection("jdbc:mysql://db4free.net:3306/sica?zeroDateTimeBehavior=convertToNull", "sica", "1122448816");
- 
+
             //Executa a query de atualização
             java.sql.Statement st = conn.createStatement();
             st.executeUpdate("UPDATE Usuarios SET nome='"
@@ -216,8 +241,8 @@ public class AtualizarDados extends javax.swing.JFrame {
                     + this.jTextFieldCpf.getText() + "',telefone1='"
                     + this.jTextFieldTelefone1.getText() + "',telefone2='"
                     + this.jTextFieldTelefone2.getText() + "',endereço='"
-                    + this.jTextFieldEndereco.getText() 
-                    + "' WHERE matricula='" + this.jTextFieldMatricula.getText() + "'");
+                    + this.jTextFieldEndereco.getText()
+                    + "' WHERE telefone1='" + this.jTextFieldBusca.getText() + "'");
             JOptionPane.showMessageDialog(rootPane, "Aluno atualizado");
         } catch (SQLException | ClassNotFoundException e) {
             JOptionPane.showMessageDialog(rootPane, e);
@@ -228,9 +253,43 @@ public class AtualizarDados extends javax.swing.JFrame {
         this.dispose();
     }//GEN-LAST:event_jButtonVoltarActionPerformed
 
-    private void jTextFieldMatriculaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextFieldMatriculaActionPerformed
+    private void jTextFieldBuscaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextFieldBuscaActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jTextFieldMatriculaActionPerformed
+    }//GEN-LAST:event_jTextFieldBuscaActionPerformed
+
+    private void jButtonPesquisarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonPesquisarActionPerformed
+        // TODO add your handling code here:
+        try {
+
+            Class.forName("com.mysql.jdbc.Driver");
+            Connection conn = DriverManager.getConnection("jdbc:mysql://db4free.net:3306/sica?zeroDateTimeBehavior=convertToNull", "sica", "1122448816");
+
+            java.sql.Statement st = conn.createStatement();
+            st.executeQuery("Select * FROM Usuarios WHERE telefone1='" + this.jTextFieldBusca.getText() + "'");
+            ResultSet rs = st.getResultSet();
+
+            while (rs.next()) {
+                jTextFieldNome.setText(rs.getString("nome"));
+                jTextFieldCpf.setText(rs.getString("cpf"));
+                jTextFieldPlano.setText(rs.getString("plano"));
+                jTextFieldTelefone1.setText(rs.getString("telefone1"));
+                jTextFieldTelefone2.setText(rs.getString("telefone2"));
+                jTextFieldEndereco.setText(rs.getString("endereço"));
+
+            }
+
+        } catch (SQLException | ClassNotFoundException e) {
+            JOptionPane.showMessageDialog(rootPane, e);
+        }
+
+        jTextFieldNome.setEnabled(true);
+        jTextFieldCpf.setEnabled(true);
+        jTextFieldPlano.setEnabled(true);
+        jTextFieldTelefone1.setEnabled(true);
+        jTextFieldTelefone2.setEnabled(true);
+        jTextFieldEndereco.setEnabled(true);
+
+    }//GEN-LAST:event_jButtonPesquisarActionPerformed
 
     /**
      * @param args the command line arguments
@@ -269,6 +328,7 @@ public class AtualizarDados extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton jButtonAtualizar;
+    private javax.swing.JButton jButtonPesquisar;
     private javax.swing.JButton jButtonVoltar;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
@@ -279,9 +339,9 @@ public class AtualizarDados extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel7;
     private javax.swing.JLabel jLabel8;
     private javax.swing.JLabel jLabel9;
+    private javax.swing.JTextField jTextFieldBusca;
     private javax.swing.JTextField jTextFieldCpf;
     private javax.swing.JTextField jTextFieldEndereco;
-    private javax.swing.JTextField jTextFieldMatricula;
     private javax.swing.JTextField jTextFieldNome;
     private javax.swing.JTextField jTextFieldPlano;
     private javax.swing.JTextField jTextFieldTelefone1;
