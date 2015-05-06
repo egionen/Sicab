@@ -257,17 +257,7 @@ public class Cadastro extends javax.swing.JFrame {
         usuarios.setTelefone1(jTextFieldTelefone1.getText());
         usuarios.setTelefone2(jTextFieldTelefone2.getText());
         usuarios.setEndereço(jTextFieldEndereco.getText());
-  String cpf;
 
-        cpf = String.valueOf(jTextFieldCpf);
-        if (controle.ValidaCPF.isCPF(cpf) == false) {
-            JOptionPane.showMessageDialog(rootPane, "Cpf Inválido!");
-            
-        } else {
-            
-            jTextFieldCpf.setText(cpf.subSequence(0,3) + "." + cpf.substring(3, 6) + "." + cpf.substring(6,9) + "-" + cpf.substring(9,11));
-            
-        }
         if ((jTextFieldNome.getText().isEmpty()) || (jTextFieldPlano.getText().isEmpty()) || (jTextFieldCpf.getText().isEmpty()) || (jTextFieldTelefone1.getText().isEmpty()) || (jTextFieldEndereco.getText().isEmpty())) {
             JOptionPane.showMessageDialog(null, "Os campos não podem retornar vazios");
         } else {
@@ -295,26 +285,16 @@ public class Cadastro extends javax.swing.JFrame {
     }//GEN-LAST:event_jTextFieldNomeActionPerformed
 
     private void jTextFieldCpfActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextFieldCpfActionPerformed
-        String cpf;
-
-        cpf = String.valueOf(jTextFieldCpf);
-        if (controle.ValidaCPF.isCPF(cpf) == false) {
-            JOptionPane.showMessageDialog(rootPane, "Cpf Inválido!");
-            
-        } else {
-            
-            jTextFieldCpf.setText(cpf.subSequence(0,3) + "." + cpf.substring(3, 6) + "." + cpf.substring(6,9) + "-" + cpf.substring(9,11));
-            
-        }
+       
 
     }//GEN-LAST:event_jTextFieldCpfActionPerformed
 
     private void jTextFieldNomeKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jTextFieldNomeKeyTyped
         String caracteres = "0987654321";
-        if(caracteres.contains(evt.getKeyChar()+"")){
-        evt.consume();
+        if (caracteres.contains(evt.getKeyChar() + "")) {
+            evt.consume();
         }
-       
+
     }//GEN-LAST:event_jTextFieldNomeKeyTyped
 
     private void jTextFieldCpfKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jTextFieldCpfKeyPressed
