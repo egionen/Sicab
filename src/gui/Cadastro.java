@@ -45,7 +45,7 @@ public class Cadastro extends javax.swing.JFrame {
         jTextFieldNome = new javax.swing.JTextField();
         jTextFieldCpf = new javax.swing.JTextField();
         try{
-            javax.swing.text.MaskFormatter cpf = new javax.swing.text.MaskFormatter("###########");
+            javax.swing.text.MaskFormatter cpf = new javax.swing.text.MaskFormatter("###.###.###-##");
             jTextFieldCpf =  new javax.swing.JFormattedTextField(cpf);
         }
         catch(Exception e){
@@ -112,6 +112,11 @@ public class Cadastro extends javax.swing.JFrame {
         jTextFieldCpf.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jTextFieldCpfActionPerformed(evt);
+            }
+        });
+        jTextFieldCpf.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyPressed(java.awt.event.KeyEvent evt) {
+                jTextFieldCpfKeyPressed(evt);
             }
         });
 
@@ -252,7 +257,17 @@ public class Cadastro extends javax.swing.JFrame {
         usuarios.setTelefone1(jTextFieldTelefone1.getText());
         usuarios.setTelefone2(jTextFieldTelefone2.getText());
         usuarios.setEndereço(jTextFieldEndereco.getText());
+  String cpf;
 
+        cpf = String.valueOf(jTextFieldCpf);
+        if (controle.ValidaCPF.isCPF(cpf) == false) {
+            JOptionPane.showMessageDialog(rootPane, "Cpf Inválido!");
+            
+        } else {
+            
+            jTextFieldCpf.setText(cpf.subSequence(0,3) + "." + cpf.substring(3, 6) + "." + cpf.substring(6,9) + "-" + cpf.substring(9,11));
+            
+        }
         if ((jTextFieldNome.getText().isEmpty()) || (jTextFieldPlano.getText().isEmpty()) || (jTextFieldCpf.getText().isEmpty()) || (jTextFieldTelefone1.getText().isEmpty()) || (jTextFieldEndereco.getText().isEmpty())) {
             JOptionPane.showMessageDialog(null, "Os campos não podem retornar vazios");
         } else {
@@ -301,6 +316,10 @@ public class Cadastro extends javax.swing.JFrame {
         }
        
     }//GEN-LAST:event_jTextFieldNomeKeyTyped
+
+    private void jTextFieldCpfKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jTextFieldCpfKeyPressed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jTextFieldCpfKeyPressed
 
     /**
      * @param args the command line arguments
