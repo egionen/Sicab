@@ -257,14 +257,9 @@ public class Cadastro extends javax.swing.JFrame {
         usuarios.setTelefone2(jTextFieldTelefone2.getText());
         usuarios.setEndereço(jTextFieldEndereco.getText());
 
-        /*String cpf = null;
         
-       
-        if (controle.ValidaCPF.isCPF(cpf) == false) {
-
-            JOptionPane.showMessageDialog(rootPane, "CPF Inválido");
-
-        } else {*/
+        
+        
 
             if ((jTextFieldNome.getText().isEmpty()) || (jTextFieldPlano.getText().isEmpty()) || (jTextFieldCpf.getText().isEmpty()) || (jTextFieldTelefone1.getText().isEmpty()) || (jTextFieldEndereco.getText().isEmpty())) {
 
@@ -280,15 +275,15 @@ public class Cadastro extends javax.swing.JFrame {
                 }
                 JOptionPane.showMessageDialog(null, "Usuário " + jTextFieldNome.getText() + " inserido com sucesso! ");
             }
-        //}
+            //}
 
-        jTextFieldNome.setText("");
-        jTextFieldCpf.setText("");
-        jTextFieldPlano.setText("");
-        jTextFieldTelefone1.setText("");
-        jTextFieldTelefone2.setText("");
-        jTextFieldEndereco.setText("");
-
+            jTextFieldNome.setText("");
+            jTextFieldCpf.setText("");
+            jTextFieldPlano.setText("");
+            jTextFieldTelefone1.setText("");
+            jTextFieldTelefone2.setText("");
+            jTextFieldEndereco.setText("");
+         
     }//GEN-LAST:event_jButtonCadastrarActionPerformed
 
     private void jTextFieldNomeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextFieldNomeActionPerformed
