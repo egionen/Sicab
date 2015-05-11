@@ -41,6 +41,12 @@ public class AtualizarDados extends javax.swing.JFrame {
         jLabel6 = new javax.swing.JLabel();
         jLabel7 = new javax.swing.JLabel();
         jTextFieldBusca = new javax.swing.JTextField();
+        try{
+            javax.swing.text.MaskFormatter telefone = new javax.swing.text.MaskFormatter("#### - ####");
+            jTextFieldBusca =  new javax.swing.JFormattedTextField(telefone);
+        }
+        catch(Exception e){
+        }
         jTextFieldNome = new javax.swing.JTextField();
         jTextFieldCpf = new javax.swing.JTextField();
         jTextFieldTelefone1 = new javax.swing.JTextField();

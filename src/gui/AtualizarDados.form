@@ -206,6 +206,9 @@
       <Events>
         <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jTextFieldBuscaActionPerformed"/>
       </Events>
+      <AuxValues>
+        <AuxValue name="JavaCodeGenerator_CreateCodePost" type="java.lang.String" value="try{&#xd;&#xa;javax.swing.text.MaskFormatter telefone = new javax.swing.text.MaskFormatter(&quot;#### - ####&quot;);&#xd;&#xa;jTextFieldBusca =  new javax.swing.JFormattedTextField(telefone);&#xd;&#xa;}&#xd;&#xa;catch(Exception e){&#xd;&#xa;}&#xd;&#xa;"/>
+      </AuxValues>
     </Component>
     <Component class="javax.swing.JTextField" name="jTextFieldNome">
       <Properties>
