@@ -257,33 +257,29 @@ public class Cadastro extends javax.swing.JFrame {
         usuarios.setTelefone2(jTextFieldTelefone2.getText());
         usuarios.setEndereço(jTextFieldEndereco.getText());
 
-        
-        
-        
+        if ((jTextFieldNome.getText().isEmpty()) || (jTextFieldPlano.getText().isEmpty()) || (jTextFieldCpf.getText().isEmpty()) || (jTextFieldTelefone1.getText().isEmpty()) || (jTextFieldEndereco.getText().isEmpty())) {
 
-            if ((jTextFieldNome.getText().isEmpty()) || (jTextFieldPlano.getText().isEmpty()) || (jTextFieldCpf.getText().isEmpty()) || (jTextFieldTelefone1.getText().isEmpty()) || (jTextFieldEndereco.getText().isEmpty())) {
+            JOptionPane.showMessageDialog(null, "Os campos não podem retornar vazios");
+        } else {
 
-                JOptionPane.showMessageDialog(null, "Os campos não podem retornar vazios");
-            } else {
-
-                // instanciando a classe UsuarioDAO do pacote dao e criando seu objeto dao
-                UsuarioDAO dao = new UsuarioDAO();
-                try {
-                    dao.adicionarClientes(usuarios);
-                } catch (SQLException ex) {
-                    Logger.getLogger(Cadastro.class.getName()).log(Level.SEVERE, null, ex);
-                }
-                JOptionPane.showMessageDialog(null, "Usuário " + jTextFieldNome.getText() + " inserido com sucesso! ");
+            // instanciando a classe UsuarioDAO do pacote dao e criando seu objeto dao
+            UsuarioDAO dao = new UsuarioDAO();
+            try {
+                dao.adicionarClientes(usuarios);
+            } catch (SQLException ex) {
+                Logger.getLogger(Cadastro.class.getName()).log(Level.SEVERE, null, ex);
             }
-            //}
+            JOptionPane.showMessageDialog(null, "Usuário " + jTextFieldNome.getText() + " inserido com sucesso! ");
+        }
 
-            jTextFieldNome.setText("");
-            jTextFieldCpf.setText("");
-            jTextFieldPlano.setText("");
-            jTextFieldTelefone1.setText("");
-            jTextFieldTelefone2.setText("");
-            jTextFieldEndereco.setText("");
-         
+            //}
+        jTextFieldNome.setText("");
+        jTextFieldCpf.setText("");
+        jTextFieldPlano.setText("");
+        jTextFieldTelefone1.setText("");
+        jTextFieldTelefone2.setText("");
+        jTextFieldEndereco.setText("");
+
     }//GEN-LAST:event_jButtonCadastrarActionPerformed
 
     private void jTextFieldNomeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextFieldNomeActionPerformed
