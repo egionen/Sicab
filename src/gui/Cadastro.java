@@ -262,7 +262,7 @@ public class Cadastro extends javax.swing.JFrame {
             JOptionPane.showMessageDialog(null, "Os campos não podem retornar vazios");
         } else {
 
-            // instanciando a classe UsuarioDAO do pacote dao e criando seu objeto dao
+            
             UsuarioDAO dao = new UsuarioDAO();
             try {
                 dao.adicionarClientes(usuarios);
