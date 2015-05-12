@@ -6,6 +6,7 @@
 package gui;
 
 import controle.Usuarios;
+import controle.CPF;
 import dao.UsuarioDAO;
 import java.sql.SQLException;
 import java.util.logging.Level;
@@ -44,6 +45,12 @@ public class Cadastro extends javax.swing.JFrame {
         jLabel7 = new javax.swing.JLabel();
         jTextFieldNome = new javax.swing.JTextField();
         jTextFieldCpf = new javax.swing.JTextField();
+        try{
+            javax.swing.text.MaskFormatter cpf = new javax.swing.text.MaskFormatter("###.###.###-##");
+            jTextFieldCpf =  new javax.swing.JFormattedTextField(cpf);
+        }
+        catch(Exception e){
+        }
         jTextFieldPlano = new javax.swing.JTextField();
 
         jTextFieldTelefone1 = new javax.swing.JTextField();
@@ -248,7 +255,7 @@ public class Cadastro extends javax.swing.JFrame {
     }//GEN-LAST:event_jButtonLimparActionPerformed
 
     private void jButtonCadastrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonCadastrarActionPerformed
-
+        
         Usuarios usuarios = new Usuarios();
         usuarios.setNome(jTextFieldNome.getText());
         usuarios.setCpf(jTextFieldCpf.getText());
@@ -257,12 +264,13 @@ public class Cadastro extends javax.swing.JFrame {
         usuarios.setTelefone2(jTextFieldTelefone2.getText());
         usuarios.setEndereço(jTextFieldEndereco.getText());
 
-        if ((jTextFieldNome.getText().isEmpty()) || (jTextFieldPlano.getText().isEmpty()) || (jTextFieldCpf.getText().isEmpty()) || (jTextFieldTelefone1.getText().isEmpty()) || (jTextFieldEndereco.getText().isEmpty())) {
+        if (!(new CPF(jTextFieldCpf.getText())).isValidCPF()) {
+            JOptionPane.showMessageDialog(rootPane, "CPF inválido");
+        } else if ((jTextFieldNome.getText().isEmpty()) || (jTextFieldPlano.getText().isEmpty()) || (jTextFieldCpf.getText().isEmpty()) || (jTextFieldTelefone1.getText().isEmpty()) || (jTextFieldEndereco.getText().isEmpty())) {
 
             JOptionPane.showMessageDialog(null, "Os campos não podem retornar vazios");
         } else {
 
-            
             UsuarioDAO dao = new UsuarioDAO();
             try {
                 dao.adicionarClientes(usuarios);
@@ -270,15 +278,15 @@ public class Cadastro extends javax.swing.JFrame {
                 Logger.getLogger(Cadastro.class.getName()).log(Level.SEVERE, null, ex);
             }
             JOptionPane.showMessageDialog(null, "Usuário " + jTextFieldNome.getText() + " inserido com sucesso! ");
+
+            jTextFieldNome.setText("");
+            jTextFieldCpf.setText("");
+            jTextFieldPlano.setText("");
+            jTextFieldTelefone1.setText("");
+            jTextFieldTelefone2.setText("");
+            jTextFieldEndereco.setText("");
         }
 
-            //}
-        jTextFieldNome.setText("");
-        jTextFieldCpf.setText("");
-        jTextFieldPlano.setText("");
-        jTextFieldTelefone1.setText("");
-        jTextFieldTelefone2.setText("");
-        jTextFieldEndereco.setText("");
 
     }//GEN-LAST:event_jButtonCadastrarActionPerformed
 
