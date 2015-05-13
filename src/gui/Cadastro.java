@@ -6,7 +6,7 @@
 package gui;
 
 import controle.Usuarios;
-import controle.CPF;
+//import controle.CPF;
 import dao.UsuarioDAO;
 import java.sql.SQLException;
 import java.util.logging.Level;
@@ -264,9 +264,10 @@ public class Cadastro extends javax.swing.JFrame {
         usuarios.setTelefone2(jTextFieldTelefone2.getText());
         usuarios.setEndereço(jTextFieldEndereco.getText());
 
-        if (!(new CPF(jTextFieldCpf.getText())).isValidCPF()) {
+        /*if (!(new CPF(jTextFieldCpf.getText())).isValidCPF()) {
             JOptionPane.showMessageDialog(rootPane, "CPF inválido");
-        } else if ((jTextFieldNome.getText().isEmpty()) || (jTextFieldPlano.getText().isEmpty()) || (jTextFieldCpf.getText().isEmpty()) || (jTextFieldTelefone1.getText().isEmpty()) || (jTextFieldEndereco.getText().isEmpty())) {
+        } else*/ 
+        if ((jTextFieldNome.getText().isEmpty()) || (jTextFieldPlano.getText().isEmpty()) || (jTextFieldCpf.getText().isEmpty()) || (jTextFieldTelefone1.getText().isEmpty()) || (jTextFieldEndereco.getText().isEmpty())) {
 
             JOptionPane.showMessageDialog(null, "Os campos não podem retornar vazios");
         } else {
