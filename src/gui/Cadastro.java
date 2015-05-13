@@ -256,6 +256,8 @@ public class Cadastro extends javax.swing.JFrame {
 
     private void jButtonCadastrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonCadastrarActionPerformed
         
+        
+        
         Usuarios usuarios = new Usuarios();
         usuarios.setNome(jTextFieldNome.getText());
         usuarios.setCpf(jTextFieldCpf.getText());
@@ -267,6 +269,12 @@ public class Cadastro extends javax.swing.JFrame {
         /*if (!(new CPF(jTextFieldCpf.getText())).isValidCPF()) {
             JOptionPane.showMessageDialog(rootPane, "CPF inválido");
         } else*/ 
+        
+
+      
+
+
+   
         if ((jTextFieldNome.getText().isEmpty()) || (jTextFieldPlano.getText().isEmpty()) || (jTextFieldCpf.getText().isEmpty()) || (jTextFieldTelefone1.getText().isEmpty()) || (jTextFieldEndereco.getText().isEmpty())) {
 
             JOptionPane.showMessageDialog(null, "Os campos não podem retornar vazios");
