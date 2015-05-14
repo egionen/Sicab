@@ -6,7 +6,8 @@
 package gui;
 
 import controle.Usuarios;
-//import controle.CPF;
+
+import controle.CPF;
 import dao.UsuarioDAO;
 import java.sql.SQLException;
 import java.util.logging.Level;
@@ -257,18 +258,26 @@ public class Cadastro extends javax.swing.JFrame {
     private void jButtonCadastrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonCadastrarActionPerformed
         
         
+        String cpf = null;
         
         Usuarios usuarios = new Usuarios();
         usuarios.setNome(jTextFieldNome.getText());
         usuarios.setCpf(jTextFieldCpf.getText());
+        
+        
+        
         usuarios.setPlano(jTextFieldPlano.getText());
         usuarios.setTelefone1(jTextFieldTelefone1.getText());
         usuarios.setTelefone2(jTextFieldTelefone2.getText());
         usuarios.setEndereço(jTextFieldEndereco.getText());
 
-        /*if (!(new CPF(jTextFieldCpf.getText())).isValidCPF()) {
-            JOptionPane.showMessageDialog(rootPane, "CPF inválido");
-        } else*/ 
+        cpf = jTextFieldCpf.toString();
+        
+        
+        
+       // if (!(new CPF(jTextFieldCpf.getText())).isValidCPF()) {
+         //   JOptionPane.showMessageDialog(rootPane, "CPF inválido");
+        //} else
         
 
       
