@@ -256,38 +256,23 @@ public class Cadastro extends javax.swing.JFrame {
     }//GEN-LAST:event_jButtonLimparActionPerformed
 
     private void jButtonCadastrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonCadastrarActionPerformed
-        
-        
+
         String cpf = null;
-        
+
         Usuarios usuarios = new Usuarios();
         usuarios.setNome(jTextFieldNome.getText());
         usuarios.setCpf(jTextFieldCpf.getText());
-        
-        
-        
         usuarios.setPlano(jTextFieldPlano.getText());
         usuarios.setTelefone1(jTextFieldTelefone1.getText());
         usuarios.setTelefone2(jTextFieldTelefone2.getText());
         usuarios.setEndereço(jTextFieldEndereco.getText());
 
         cpf = jTextFieldCpf.toString();
-        
-        
-        
-       // if (!(new CPF(jTextFieldCpf.getText())).isValidCPF()) {
-         //   JOptionPane.showMessageDialog(rootPane, "CPF inválido");
-        //} else
-        
 
-      
-
-
-   
-        if ((jTextFieldNome.getText().isEmpty()) || (jTextFieldPlano.getText().isEmpty()) || (jTextFieldCpf.getText().isEmpty()) || (jTextFieldTelefone1.getText().isEmpty()) || (jTextFieldEndereco.getText().isEmpty())) {
-
-            JOptionPane.showMessageDialog(null, "Os campos não podem retornar vazios");
-        } else {
+     
+        if (!(new CPF(jTextFieldCpf.getText())).isValidCPF()) {
+            JOptionPane.showMessageDialog(rootPane, "CPF inválido");
+        } else if ((jTextFieldNome.getText().isEmpty()) || (jTextFieldPlano.getText().isEmpty()) || (jTextFieldCpf.getText().isEmpty()) || (jTextFieldTelefone1.getText().isEmpty()) || (jTextFieldEndereco.getText().isEmpty())) {
 
             UsuarioDAO dao = new UsuarioDAO();
             try {
