@@ -269,27 +269,34 @@ public class Cadastro extends javax.swing.JFrame {
 
         cpf = jTextFieldCpf.toString();
 
-     
         if (!(new CPF(jTextFieldCpf.getText())).isValidCPF()) {
             JOptionPane.showMessageDialog(rootPane, "CPF inválido");
-        } else if ((jTextFieldNome.getText().isEmpty()) || (jTextFieldPlano.getText().isEmpty()) || (jTextFieldCpf.getText().isEmpty()) || (jTextFieldTelefone1.getText().isEmpty()) || (jTextFieldEndereco.getText().isEmpty())) {
+        } else {
 
-            UsuarioDAO dao = new UsuarioDAO();
-            try {
-                dao.adicionarClientes(usuarios);
-            } catch (SQLException ex) {
-                Logger.getLogger(Cadastro.class.getName()).log(Level.SEVERE, null, ex);
+            if ((jTextFieldNome.getText().isEmpty()) || (jTextFieldPlano.getText().isEmpty()) || (jTextFieldCpf.getText().isEmpty()) || (jTextFieldTelefone1.getText().isEmpty()) || (jTextFieldEndereco.getText().isEmpty())) {
+                
+                JOptionPane.showMessageDialog(rootPane, "Os campos não podem retornar vazios");
+                    
+            } else {
+                
+                UsuarioDAO dao = new UsuarioDAO();
+
+                try {
+                    dao.adicionarClientes(usuarios);
+                } catch (SQLException ex) {
+                    Logger.getLogger(Cadastro.class.getName()).log(Level.SEVERE, null, ex);
+                }
+                JOptionPane.showMessageDialog(null, "Usuário " + jTextFieldNome.getText() + " inserido com sucesso! ");
+
+                jTextFieldNome.setText("");
+                jTextFieldCpf.setText("");
+                jTextFieldPlano.setText("");
+                jTextFieldTelefone1.setText("");
+                jTextFieldTelefone2.setText("");
+                jTextFieldEndereco.setText("");
             }
-            JOptionPane.showMessageDialog(null, "Usuário " + jTextFieldNome.getText() + " inserido com sucesso! ");
 
-            jTextFieldNome.setText("");
-            jTextFieldCpf.setText("");
-            jTextFieldPlano.setText("");
-            jTextFieldTelefone1.setText("");
-            jTextFieldTelefone2.setText("");
-            jTextFieldEndereco.setText("");
         }
-
 
     }//GEN-LAST:event_jButtonCadastrarActionPerformed
 
