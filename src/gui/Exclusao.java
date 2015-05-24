@@ -139,15 +139,18 @@ public class Exclusao extends javax.swing.JFrame {
            
           
             st.executeQuery("Select * FROM Usuarios WHERE telefone1='" + this.jTextFieldTelefone1.getText() + "'");
-           String nome = null;
+           String nome = null,matricula = null,cpf = null;
             ResultSet rs = st.getResultSet();
            while(rs.next()){
+           matricula = rs.getString("matricula");
            nome = rs.getString("nome");
+           cpf = rs.getString("cpf");
+          
            
            }
 //            String nome = rs.getString("nome");
             
-            int reply = JOptionPane.showConfirmDialog(rootPane, "Você realmente deseja excluir o "+nome+"?", "Confirmação", JOptionPane.YES_NO_OPTION);
+            int reply = JOptionPane.showConfirmDialog(rootPane, "Matricula ="+matricula+" \nCPF = "+cpf+"\nVocê realmente deseja excluir o "+nome+"?", "Confirmação", JOptionPane.YES_NO_OPTION);
             if (reply == JOptionPane.YES_OPTION){ 
             st.executeUpdate("DELETE FROM Usuarios WHERE telefone1='" + this.jTextFieldTelefone1.getText() + "'");
             JOptionPane.showMessageDialog(rootPane, "Aluno excluído");}
