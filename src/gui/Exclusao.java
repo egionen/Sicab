@@ -7,6 +7,7 @@ package gui;
 
 import java.sql.Connection;
 import java.sql.DriverManager;
+import java.sql.ResultSet;
 import java.sql.SQLException;
 import javax.swing.JOptionPane;
 
@@ -126,7 +127,7 @@ public class Exclusao extends javax.swing.JFrame {
 
     private void jButtonExcluirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonExcluirActionPerformed
         
-         try {
+        try {
             //Registra JDBC driver
             Class.forName("com.mysql.jdbc.Driver");
  
@@ -135,9 +136,23 @@ public class Exclusao extends javax.swing.JFrame {
  
             //Executa a query de exclusão
             java.sql.Statement st = conn.createStatement();
+           
+          
+            st.executeQuery("Select * FROM Usuarios WHERE telefone1='" + this.jTextFieldTelefone1.getText() + "'");
+           String nome = null;
+            ResultSet rs = st.getResultSet();
+           while(rs.next()){
+           nome = rs.getString("nome");
+           
+           }
+//            String nome = rs.getString("nome");
+            
+            int reply = JOptionPane.showConfirmDialog(rootPane, "Você realmente deseja excluir o "+nome+"?", "Confirmação", JOptionPane.YES_NO_OPTION);
+            if (reply == JOptionPane.YES_OPTION){ 
             st.executeUpdate("DELETE FROM Usuarios WHERE telefone1='" + this.jTextFieldTelefone1.getText() + "'");
-            //st.executeUpdate(this.jTextFieldTelefone1.getText() + "DELETE FROM Usuarios WHERE telefone1='" + "'");
-            JOptionPane.showMessageDialog(rootPane, "Aluno excluído");
+            JOptionPane.showMessageDialog(rootPane, "Aluno excluído");}
+            
+            
         } catch (SQLException | ClassNotFoundException e) {
             JOptionPane.showMessageDialog(rootPane, e);}
     }//GEN-LAST:event_jButtonExcluirActionPerformed
