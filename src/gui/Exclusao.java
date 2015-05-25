@@ -150,8 +150,8 @@ public class Exclusao extends javax.swing.JFrame {
            }
 //            String nome = rs.getString("nome");
             
-            int reply = JOptionPane.showConfirmDialog(rootPane, "Matricula ="+matricula+" \nCPF = "+cpf+"\nVocê realmente deseja excluir o "+nome+"?", "Confirmação", JOptionPane.YES_NO_OPTION);
-            if (reply == JOptionPane.YES_OPTION){ 
+            int opcao = JOptionPane.showConfirmDialog(rootPane, "Matricula ="+matricula+" \nCPF = "+cpf+"\nVocê realmente deseja excluir o "+nome+"?", "Confirmação", JOptionPane.YES_NO_OPTION);
+            if (opcao == JOptionPane.YES_OPTION){ 
             st.executeUpdate("DELETE FROM Usuarios WHERE telefone1='" + this.jTextFieldTelefone1.getText() + "'");
             JOptionPane.showMessageDialog(rootPane, "Aluno excluído");}
             
