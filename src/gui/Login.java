@@ -5,7 +5,7 @@
  */
 package gui;
 
-import Conexao.ConnectionFactory;
+import gui.Home;
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.ResultSet;
@@ -83,11 +83,10 @@ public class Login extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-        String usuario;
-        String senha;
 
-        String senhadigitada;
-        senhadigitada = String.valueOf(jTextFieldSenha);
+        String senha = null, senhadigitada;
+
+        senhadigitada = jTextFieldSenha.getText();
 
         try {
 
@@ -98,24 +97,26 @@ public class Login extends javax.swing.JFrame {
             st.executeQuery("Select * FROM Logins WHERE usuario='" + this.jTextFieldUsuario.getText() + "'");
             ResultSet rs = st.getResultSet();
 
-            senha = null;
             while (rs.next()) {
-                usuario = rs.getString("usuario");
                 senha = rs.getString("senha");
             }
 
-            if (senha == senhadigitada) {
+            if (senha.equals(senhadigitada)) {
 
                 JOptionPane.showMessageDialog(rootPane, "Logado!");
+              Home ho = new Home();
+                ho.setVisible(true);
 
             } else {
-                JOptionPane.showMessageDialog(rootPane, senha);
 
+                JOptionPane.showMessageDialog(rootPane, "Usuario ou senha invalidos");
             }
 
         } catch (SQLException | ClassNotFoundException e) {
             JOptionPane.showMessageDialog(rootPane, e);
-        }
+        }  
+        
+        
 
 
     }//GEN-LAST:event_jButton1ActionPerformed
