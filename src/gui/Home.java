@@ -133,7 +133,7 @@ public class Home extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void jButtonSairActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonSairActionPerformed
-        System.exit(0);
+        this.dispose();
     }//GEN-LAST:event_jButtonSairActionPerformed
 
     private void jButtonCadatroActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonCadatroActionPerformed
