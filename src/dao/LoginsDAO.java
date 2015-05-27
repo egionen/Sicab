@@ -19,12 +19,13 @@ public class LoginsDAO {
     }
 
     public void adicionarUsuarios(Logins logins) throws SQLException {
-        String sql = "INSERT INTO Logins (usuario,senha) VALUES (?,?) ";
+        String sql = "INSERT INTO Logins (usuario,senha,funcao) VALUES (?,?,?) ";
 
         try {
             PreparedStatement stmt = connection.prepareStatement(sql);
             stmt.setString(1, logins.getUsuario());
             stmt.setString(2, logins.getSenha());
+            stmt.setString(3, logins.getFuncao());
             stmt.execute();
             stmt.close();
 

@@ -3,6 +3,7 @@
   <persistence-unit name="Sicab0.5PU" transaction-type="RESOURCE_LOCAL">
     <provider>org.eclipse.persistence.jpa.PersistenceProvider</provider>
     <class>controle.Usuarios</class>
+    <class>controle.Logins</class>
     <properties>
       <property name="javax.persistence.jdbc.url" value="jdbc:mysql://db4free.net:3306/sica?zeroDateTimeBehavior=convertToNull"/>
       <property name="javax.persistence.jdbc.user" value="sica"/>
