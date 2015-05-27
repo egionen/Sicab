@@ -5,10 +5,6 @@
  */
 package gui;
 
-import gui.CadastroUsuario;
-import gui.CadastroUsuario;
-import gui.Home;
-import gui.Home;
 import gui.Home;
 import java.sql.Connection;
 import java.sql.DriverManager;
@@ -218,7 +214,7 @@ public class Login extends javax.swing.JFrame {
                 JOptionPane.showMessageDialog(rootPane, e);
             }
         }
-
+        dispose();
 
     }//GEN-LAST:event_jButton1ActionPerformed
 

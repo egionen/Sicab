@@ -58,6 +58,7 @@ public class AtualizarDados extends javax.swing.JFrame {
         jButtonVoltar = new javax.swing.JButton();
         jLabel9 = new javax.swing.JLabel();
         jButtonPesquisar = new javax.swing.JButton();
+        jButton1 = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         setTitle("Atualizar Dados");
@@ -122,6 +123,13 @@ public class AtualizarDados extends javax.swing.JFrame {
             }
         });
 
+        jButton1.setText("Limpar os Campos");
+        jButton1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton1ActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -132,6 +140,11 @@ public class AtualizarDados extends javax.swing.JFrame {
                         .addComponent(jButtonVoltar, javax.swing.GroupLayout.PREFERRED_SIZE, 180, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addComponent(jButtonAtualizar, javax.swing.GroupLayout.PREFERRED_SIZE, 180, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(27, 27, 27)
+                        .addComponent(jLabel8, javax.swing.GroupLayout.PREFERRED_SIZE, 306, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(jLabel9, javax.swing.GroupLayout.PREFERRED_SIZE, 217, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(layout.createSequentialGroup()
                         .addContainerGap()
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -165,13 +178,10 @@ public class AtualizarDados extends javax.swing.JFrame {
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                 .addComponent(jTextFieldBusca, javax.swing.GroupLayout.PREFERRED_SIZE, 329, javax.swing.GroupLayout.PREFERRED_SIZE)))
                         .addGap(18, 18, 18)
-                        .addComponent(jButtonPesquisar, javax.swing.GroupLayout.PREFERRED_SIZE, 88, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(0, 237, Short.MAX_VALUE))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(27, 27, 27)
-                        .addComponent(jLabel8, javax.swing.GroupLayout.PREFERRED_SIZE, 306, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(jLabel9, javax.swing.GroupLayout.PREFERRED_SIZE, 217, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jButton1)
+                            .addComponent(jButtonPesquisar, javax.swing.GroupLayout.PREFERRED_SIZE, 88, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(0, 206, Short.MAX_VALUE)))
                 .addContainerGap())
         );
         layout.setVerticalGroup(
@@ -224,7 +234,9 @@ public class AtualizarDados extends javax.swing.JFrame {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                     .addComponent(jLabel7, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jTextFieldPlano, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 132, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 11, Short.MAX_VALUE)
+                .addComponent(jButton1)
+                .addGap(98, 98, 98)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jButtonVoltar, javax.swing.GroupLayout.PREFERRED_SIZE, 62, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jButtonAtualizar, javax.swing.GroupLayout.PREFERRED_SIZE, 62, javax.swing.GroupLayout.PREFERRED_SIZE))
@@ -297,8 +309,63 @@ public class AtualizarDados extends javax.swing.JFrame {
         jTextFieldTelefone1.setEnabled(true);
         jTextFieldTelefone2.setEnabled(true);
         jTextFieldEndereco.setEnabled(true);
+        
+       /*
+        Tentativa Excerção para pesquisa de cliente invalida!
+        try {
+
+            Class.forName("com.mysql.jdbc.Driver");
+            Connection conn = DriverManager.getConnection("jdbc:mysql://db4free.net:3306/sica?zeroDateTimeBehavior=convertToNull", "sica", "1122448816");
+
+            java.sql.Statement st = conn.createStatement();
+            st.executeQuery("Select * FROM Usuarios WHERE telefone1='" + this.jTextFieldBusca.getText() + "'");
+            ResultSet rs = st.getResultSet();
+            String resultado;
+            JOptionPane.showMessageDialog(rootPane, "Este e o resultset\n:" + rs);
+
+            while (rs.next()) {
+                resultado = rs.getString("nome");
+                if (!(resultado.equals(null))) {
+                    jTextFieldNome.setText(rs.getString("nome"));
+                    jTextFieldCpf.setText(rs.getString("cpf"));
+                    jTextFieldPlano.setText(rs.getString("plano"));
+                    jTextFieldTelefone1.setText(rs.getString("telefone1"));
+                    jTextFieldTelefone2.setText(rs.getString("telefone2"));
+                    jTextFieldEndereco.setText(rs.getString("endereço"));
+
+                    jTextFieldNome.setEnabled(true);
+                    jTextFieldCpf.setEnabled(true);
+                    jTextFieldPlano.setEnabled(true);
+                    jTextFieldTelefone1.setEnabled(true);
+                    jTextFieldTelefone2.setEnabled(true);
+                    jTextFieldEndereco.setEnabled(true);
+                } else {
+                    JOptionPane.showMessageDialog(rootPane, "Aluno nao existe! Numero errado!");
+                }
+            }
+        } catch (SQLException | ClassNotFoundException e) {
+            JOptionPane.showMessageDialog(rootPane, e);
+        }
+*/
 
     }//GEN-LAST:event_jButtonPesquisarActionPerformed
+
+    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+        // TODO add your handling code here:
+        jTextFieldNome.setText("");
+        jTextFieldCpf.setText("");
+        jTextFieldPlano.setText("");
+        jTextFieldTelefone1.setText("");
+        jTextFieldTelefone2.setText("");
+        jTextFieldEndereco.setText("");
+
+        jTextFieldNome.setEnabled(false);
+        jTextFieldCpf.setEnabled(false);
+        jTextFieldPlano.setEnabled(false);
+        jTextFieldTelefone1.setEnabled(false);
+        jTextFieldTelefone2.setEnabled(false);
+        jTextFieldEndereco.setEnabled(false);
+    }//GEN-LAST:event_jButton1ActionPerformed
 
     /**
      * @param args the command line arguments
@@ -336,6 +403,7 @@ public class AtualizarDados extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton jButton1;
     private javax.swing.JButton jButtonAtualizar;
     private javax.swing.JButton jButtonPesquisar;
     private javax.swing.JButton jButtonVoltar;
