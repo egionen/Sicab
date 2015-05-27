@@ -46,9 +46,7 @@ public class CadastroUsuario extends javax.swing.JFrame {
         jTextFieldConfirmar = new javax.swing.JTextField();
         jButtonCadastrar = new javax.swing.JButton();
         jLabel5 = new javax.swing.JLabel();
-        jRadioButton2 = new javax.swing.JRadioButton();
-        jRadioButton3 = new javax.swing.JRadioButton();
-        jRadioButton1 = new javax.swing.JRadioButton();
+        jComboBox1 = new javax.swing.JComboBox();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -75,24 +73,10 @@ public class CadastroUsuario extends javax.swing.JFrame {
 
         jLabel5.setText("Função");
 
-        jRadioButton2.setText("Secretário");
-        jRadioButton2.addActionListener(new java.awt.event.ActionListener() {
+        jComboBox1.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Administrador", "Secretário", "Professor" }));
+        jComboBox1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jRadioButton2ActionPerformed(evt);
-            }
-        });
-
-        jRadioButton3.setText("Professor");
-        jRadioButton3.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jRadioButton3ActionPerformed(evt);
-            }
-        });
-
-        jRadioButton1.setText("Gerente");
-        jRadioButton1.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jRadioButton1ActionPerformed(evt);
+                jComboBox1ActionPerformed(evt);
             }
         });
 
@@ -118,13 +102,11 @@ public class CadastroUsuario extends javax.swing.JFrame {
                                     .addComponent(jLabel5))
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(jRadioButton2)
+                                    .addComponent(jComboBox1, javax.swing.GroupLayout.PREFERRED_SIZE, 238, javax.swing.GroupLayout.PREFERRED_SIZE)
                                     .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                                         .addComponent(jTextFieldConfirmar, javax.swing.GroupLayout.DEFAULT_SIZE, 436, Short.MAX_VALUE)
                                         .addComponent(jTextFieldSenha)
-                                        .addComponent(jTextFieldUsuario))
-                                    .addComponent(jRadioButton3)
-                                    .addComponent(jRadioButton1))))
+                                        .addComponent(jTextFieldUsuario)))))
                         .addGap(0, 29, Short.MAX_VALUE)))
                 .addContainerGap())
         );
@@ -145,15 +127,11 @@ public class CadastroUsuario extends javax.swing.JFrame {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel4, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jTextFieldConfirmar, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 19, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 40, Short.MAX_VALUE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel5)
-                    .addComponent(jRadioButton1))
-                .addGap(18, 18, 18)
-                .addComponent(jRadioButton2)
-                .addGap(18, 18, 18)
-                .addComponent(jRadioButton3)
-                .addGap(86, 86, 86)
+                    .addComponent(jComboBox1, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(167, 167, 167)
                 .addComponent(jButtonCadastrar, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap())
         );
@@ -166,48 +144,43 @@ public class CadastroUsuario extends javax.swing.JFrame {
     }//GEN-LAST:event_jTextFieldSenhaActionPerformed
 
     private void jButtonCadastrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonCadastrarActionPerformed
-      
 
         Logins logins = new Logins();
 
         logins.setUsuario(jTextFieldUsuario.getText());
         logins.setSenha(jTextFieldSenha.getText());
+        logins.setFuncao(jComboBox1.getSelectedItem().toString());
 
-        if (jTextFieldUsuario.getText().isEmpty() || jTextFieldSenha.getText().isEmpty()) {
-            JOptionPane.showMessageDialog(rootPane, "Os Campos não podem retornar nulos");
-            if(jTextFieldSenha.getText() != jTextFieldConfirmar.getText()){
-                JOptionPane.showMessageDialog(rootPane, "As Senhas são diferentes");
-            }
+        if (!(jTextFieldSenha.getText().equals(jTextFieldConfirmar.getText()))) {
+            JOptionPane.showMessageDialog(null, "As senhas não batem");
         } else {
-            LoginsDAO dao = new LoginsDAO();
-            try {
+            if (jTextFieldUsuario.getText().isEmpty() || jTextFieldSenha.getText().isEmpty()) {
+                JOptionPane.showMessageDialog(rootPane, "Os Campos não podem retornar nulos");
+            } else {
+                LoginsDAO dao = new LoginsDAO();
+                try {
 
-                dao.adicionarUsuarios(logins);
+                    String funcao = jComboBox1.getSelectedItem().toString();
+                    logins.getFuncao();
+                    logins.setFuncao(funcao);
+                    dao.adicionarUsuarios(logins);
 
-            } catch (SQLException ex) {
-                Logger.getLogger(Cadastro.class.getName()).log(Level.SEVERE, null, ex);
+                } catch (SQLException ex) {
+                    Logger.getLogger(Cadastro.class.getName()).log(Level.SEVERE, null, ex);
+                }
+                JOptionPane.showMessageDialog(null, "Usuário " + jTextFieldUsuario.getText() + " inserido com sucesso! ");
+
             }
-            JOptionPane.showMessageDialog(null, "Usuário " + jTextFieldUsuario.getText() + " inserido com sucesso! ");
+            jTextFieldUsuario.setText("");
+            jTextFieldSenha.setText("");
+            jTextFieldConfirmar.setText("");
 
         }
-        jTextFieldUsuario.setText("");
-        jTextFieldSenha.setText("");
-        jTextFieldConfirmar.setText("");
-
-
     }//GEN-LAST:event_jButtonCadastrarActionPerformed
 
-    private void jRadioButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jRadioButton2ActionPerformed
+    private void jComboBox1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jComboBox1ActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jRadioButton2ActionPerformed
-
-    private void jRadioButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jRadioButton1ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jRadioButton1ActionPerformed
-
-    private void jRadioButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jRadioButton3ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jRadioButton3ActionPerformed
+    }//GEN-LAST:event_jComboBox1ActionPerformed
 
     /**
      * @param args the command line arguments
@@ -247,14 +220,12 @@ public class CadastroUsuario extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton jButtonCadastrar;
+    private javax.swing.JComboBox jComboBox1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
-    private javax.swing.JRadioButton jRadioButton1;
-    private javax.swing.JRadioButton jRadioButton2;
-    private javax.swing.JRadioButton jRadioButton3;
     private javax.swing.JTextField jTextFieldConfirmar;
     private javax.swing.JTextField jTextFieldSenha;
     private javax.swing.JTextField jTextFieldUsuario;
