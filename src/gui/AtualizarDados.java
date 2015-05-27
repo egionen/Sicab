@@ -62,7 +62,6 @@ public class AtualizarDados extends javax.swing.JFrame {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         setTitle("Atualizar Dados");
-        setBackground(new java.awt.Color(255, 255, 255));
 
         jLabel1.setText("Telefone do Usuario");
 
@@ -279,83 +278,46 @@ public class AtualizarDados extends javax.swing.JFrame {
     }//GEN-LAST:event_jTextFieldBuscaActionPerformed
 
     private void jButtonPesquisarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonPesquisarActionPerformed
-//        // TODO add your handling code here:
-//        try {
-//
-//            Class.forName("com.mysql.jdbc.Driver");
-//            Connection conn = DriverManager.getConnection("jdbc:mysql://db4free.net:3306/sica?zeroDateTimeBehavior=convertToNull", "sica", "1122448816");
-//
-//            java.sql.Statement st = conn.createStatement();
-//            st.executeQuery("Select * FROM Usuarios WHERE telefone1='" + this.jTextFieldBusca.getText() + "'");
-//            ResultSet rs = st.getResultSet();
-//
-//            while (rs.next()) {
-//                jTextFieldNome.setText(rs.getString("nome"));
-//                jTextFieldCpf.setText(rs.getString("cpf"));
-//                jTextFieldPlano.setText(rs.getString("plano"));
-//                jTextFieldTelefone1.setText(rs.getString("telefone1"));
-//                jTextFieldTelefone2.setText(rs.getString("telefone2"));
-//                jTextFieldEndereco.setText(rs.getString("endereço"));
-//
-//            }
-//
-//        } catch (SQLException | ClassNotFoundException e) {
-//            JOptionPane.showMessageDialog(rootPane, e);
-//        }
-//
-//        jTextFieldNome.setEnabled(true);
-//        jTextFieldCpf.setEnabled(true);
-//        jTextFieldPlano.setEnabled(true);
-//        jTextFieldTelefone1.setEnabled(true);
-//        jTextFieldTelefone2.setEnabled(true);
-//        jTextFieldEndereco.setEnabled(true);
 
-//        Tentativa Excerção para pesquisa de cliente invalida!  
-        if (jTextFieldBusca.equals(null)) {
 
-            JOptionPane.showMessageDialog(rootPane, "O campo de busca não pode retornar vazio");
-        } else {
-            try {
+        try {
 
-                Class.forName("com.mysql.jdbc.Driver");
-                Connection conn = DriverManager.getConnection("jdbc:mysql://db4free.net:3306/sica?zeroDateTimeBehavior=convertToNull", "sica", "1122448816");
-                
+            Class.forName("com.mysql.jdbc.Driver");
+            Connection conn = DriverManager.getConnection("jdbc:mysql://db4free.net:3306/sica?zeroDateTimeBehavior=convertToNull", "sica", "1122448816");
 
-                    java.sql.Statement st = conn.createStatement();
-                    st.executeQuery("Select * FROM Usuarios WHERE telefone1='" + this.jTextFieldBusca.getText() + "'");
-                    ResultSet rs = st.getResultSet();
-                    String resultado = null;
-                    
+            java.sql.Statement st = conn.createStatement();
+            st.executeQuery("Select * FROM Usuarios WHERE telefone1='" + this.jTextFieldBusca.getText() + "'");
+            ResultSet rs = st.getResultSet();
 
-//            JOptionPane.showMessageDialog(rootPane, "Este e o resultset\n:" + rs);
-                    if (jTextFieldBusca.getText().equals("     -     ")) {
-                        JOptionPane.showMessageDialog(rootPane, "Campo de Busca não pode retornar vazio");
-                    } else {
-                        while (rs.next()) {
-                            
-                            jTextFieldNome.setText(rs.getString("nome"));
-                            jTextFieldCpf.setText(rs.getString("cpf"));
-                            jTextFieldPlano.setText(rs.getString("plano"));
-                            jTextFieldTelefone1.setText(rs.getString("telefone1"));
-                            jTextFieldTelefone2.setText(rs.getString("telefone2"));
-                            jTextFieldEndereco.setText(rs.getString("endereço"));
-                        }if (jTextFieldNome.getText().isEmpty()){
-                            JOptionPane.showMessageDialog(rootPane, "Aluno não existe");
-                        }else{
-                    
+
+
+            if (jTextFieldBusca.getText().equals("     -     ")) {
+                JOptionPane.showMessageDialog(rootPane, "Campo de Busca não pode retornar vazio!");
+            } else {
+                while (rs.next()) {
+
+                    jTextFieldNome.setText(rs.getString("nome"));
+                    jTextFieldCpf.setText(rs.getString("cpf"));
+                    jTextFieldPlano.setText(rs.getString("plano"));
+                    jTextFieldTelefone1.setText(rs.getString("telefone1"));
+                    jTextFieldTelefone2.setText(rs.getString("telefone2"));
+                    jTextFieldEndereco.setText(rs.getString("endereço"));
+                }
+                if (jTextFieldNome.getText().isEmpty()) {
+                    JOptionPane.showMessageDialog(rootPane, "Aluno não existe! O número está incorreto !");
+                } else {
 
                     jTextFieldNome.setEnabled(true);
                     jTextFieldCpf.setEnabled(true);
                     jTextFieldPlano.setEnabled(true);
                     jTextFieldTelefone1.setEnabled(true);
                     jTextFieldTelefone2.setEnabled(true);
-                    jTextFieldEndereco.setEnabled(true);}}
-            
-
-//                JOptionPane.showMessageDialog(rootPane, "Aluno nao existe! Numero errado!");
-            } catch (SQLException | ClassNotFoundException e) {
-                JOptionPane.showMessageDialog(rootPane, e);
+                    jTextFieldEndereco.setEnabled(true);
+                }
             }
+
+        } catch (SQLException | ClassNotFoundException e) {
+            JOptionPane.showMessageDialog(rootPane, e);
         }
 
 
@@ -404,6 +366,7 @@ public class AtualizarDados extends javax.swing.JFrame {
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
             java.util.logging.Logger.getLogger(AtualizarDados.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
+        //</editor-fold>
         //</editor-fold>
 
         /* Create and display the form */
