@@ -279,79 +279,88 @@ public class AtualizarDados extends javax.swing.JFrame {
     }//GEN-LAST:event_jTextFieldBuscaActionPerformed
 
     private void jButtonPesquisarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonPesquisarActionPerformed
-        // TODO add your handling code here:
-        try {
+//        // TODO add your handling code here:
+//        try {
+//
+//            Class.forName("com.mysql.jdbc.Driver");
+//            Connection conn = DriverManager.getConnection("jdbc:mysql://db4free.net:3306/sica?zeroDateTimeBehavior=convertToNull", "sica", "1122448816");
+//
+//            java.sql.Statement st = conn.createStatement();
+//            st.executeQuery("Select * FROM Usuarios WHERE telefone1='" + this.jTextFieldBusca.getText() + "'");
+//            ResultSet rs = st.getResultSet();
+//
+//            while (rs.next()) {
+//                jTextFieldNome.setText(rs.getString("nome"));
+//                jTextFieldCpf.setText(rs.getString("cpf"));
+//                jTextFieldPlano.setText(rs.getString("plano"));
+//                jTextFieldTelefone1.setText(rs.getString("telefone1"));
+//                jTextFieldTelefone2.setText(rs.getString("telefone2"));
+//                jTextFieldEndereco.setText(rs.getString("endereço"));
+//
+//            }
+//
+//        } catch (SQLException | ClassNotFoundException e) {
+//            JOptionPane.showMessageDialog(rootPane, e);
+//        }
+//
+//        jTextFieldNome.setEnabled(true);
+//        jTextFieldCpf.setEnabled(true);
+//        jTextFieldPlano.setEnabled(true);
+//        jTextFieldTelefone1.setEnabled(true);
+//        jTextFieldTelefone2.setEnabled(true);
+//        jTextFieldEndereco.setEnabled(true);
 
-            Class.forName("com.mysql.jdbc.Driver");
-            Connection conn = DriverManager.getConnection("jdbc:mysql://db4free.net:3306/sica?zeroDateTimeBehavior=convertToNull", "sica", "1122448816");
+//        Tentativa Excerção para pesquisa de cliente invalida!  
+        if (jTextFieldBusca.equals(null)) {
 
-            java.sql.Statement st = conn.createStatement();
-            st.executeQuery("Select * FROM Usuarios WHERE telefone1='" + this.jTextFieldBusca.getText() + "'");
-            ResultSet rs = st.getResultSet();
+            JOptionPane.showMessageDialog(rootPane, "O campo de busca não pode retornar vazio");
+        } else {
+            try {
 
-            while (rs.next()) {
-                jTextFieldNome.setText(rs.getString("nome"));
-                jTextFieldCpf.setText(rs.getString("cpf"));
-                jTextFieldPlano.setText(rs.getString("plano"));
-                jTextFieldTelefone1.setText(rs.getString("telefone1"));
-                jTextFieldTelefone2.setText(rs.getString("telefone2"));
-                jTextFieldEndereco.setText(rs.getString("endereço"));
+                Class.forName("com.mysql.jdbc.Driver");
+                Connection conn = DriverManager.getConnection("jdbc:mysql://db4free.net:3306/sica?zeroDateTimeBehavior=convertToNull", "sica", "1122448816");
+                
 
-            }
+                    java.sql.Statement st = conn.createStatement();
+                    st.executeQuery("Select * FROM Usuarios WHERE telefone1='" + this.jTextFieldBusca.getText() + "'");
+                    ResultSet rs = st.getResultSet();
+                    String resultado = null;
 
-        } catch (SQLException | ClassNotFoundException e) {
-            JOptionPane.showMessageDialog(rootPane, e);
-        }
+//            JOptionPane.showMessageDialog(rootPane, "Este e o resultset\n:" + rs);
+                    if (jTextFieldBusca.getText().equals("     -     ")) {
+                        JOptionPane.showMessageDialog(rootPane, "Campo de Busca não pode retornar vazio");
+                    } else {
+                        while (rs.next()) {
 
-        jTextFieldNome.setEnabled(true);
-        jTextFieldCpf.setEnabled(true);
-        jTextFieldPlano.setEnabled(true);
-        jTextFieldTelefone1.setEnabled(true);
-        jTextFieldTelefone2.setEnabled(true);
-        jTextFieldEndereco.setEnabled(true);
-        
-       /*
-        Tentativa Excerção para pesquisa de cliente invalida!
-        try {
-
-            Class.forName("com.mysql.jdbc.Driver");
-            Connection conn = DriverManager.getConnection("jdbc:mysql://db4free.net:3306/sica?zeroDateTimeBehavior=convertToNull", "sica", "1122448816");
-
-            java.sql.Statement st = conn.createStatement();
-            st.executeQuery("Select * FROM Usuarios WHERE telefone1='" + this.jTextFieldBusca.getText() + "'");
-            ResultSet rs = st.getResultSet();
-            String resultado;
-            JOptionPane.showMessageDialog(rootPane, "Este e o resultset\n:" + rs);
-
-            while (rs.next()) {
-                resultado = rs.getString("nome");
-                if (!(resultado.equals(null))) {
-                    jTextFieldNome.setText(rs.getString("nome"));
-                    jTextFieldCpf.setText(rs.getString("cpf"));
-                    jTextFieldPlano.setText(rs.getString("plano"));
-                    jTextFieldTelefone1.setText(rs.getString("telefone1"));
-                    jTextFieldTelefone2.setText(rs.getString("telefone2"));
-                    jTextFieldEndereco.setText(rs.getString("endereço"));
+                            jTextFieldNome.setText(rs.getString("nome"));
+                            jTextFieldCpf.setText(rs.getString("cpf"));
+                            jTextFieldPlano.setText(rs.getString("plano"));
+                            jTextFieldTelefone1.setText(rs.getString("telefone1"));
+                            jTextFieldTelefone2.setText(rs.getString("telefone2"));
+                            jTextFieldEndereco.setText(rs.getString("endereço"));
+                        }
+                    
 
                     jTextFieldNome.setEnabled(true);
                     jTextFieldCpf.setEnabled(true);
                     jTextFieldPlano.setEnabled(true);
                     jTextFieldTelefone1.setEnabled(true);
                     jTextFieldTelefone2.setEnabled(true);
-                    jTextFieldEndereco.setEnabled(true);
-                } else {
-                    JOptionPane.showMessageDialog(rootPane, "Aluno nao existe! Numero errado!");
-                }
+                    jTextFieldEndereco.setEnabled(true);}
+            
+
+//                JOptionPane.showMessageDialog(rootPane, "Aluno nao existe! Numero errado!");
+            } catch (SQLException | ClassNotFoundException e) {
+                JOptionPane.showMessageDialog(rootPane, e);
             }
-        } catch (SQLException | ClassNotFoundException e) {
-            JOptionPane.showMessageDialog(rootPane, e);
         }
-*/
+
 
     }//GEN-LAST:event_jButtonPesquisarActionPerformed
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         // TODO add your handling code here:
+        jTextFieldBusca.setText("");
         jTextFieldNome.setText("");
         jTextFieldCpf.setText("");
         jTextFieldPlano.setText("");
