@@ -5,8 +5,6 @@
  */
 package gui;
 
-
-
 /**
  *
  * @author Victor
@@ -36,6 +34,7 @@ public class Home extends javax.swing.JFrame {
         jButtonSair = new javax.swing.JButton();
         jButtonLocalizar1 = new javax.swing.JButton();
         jButtonAtualizar = new javax.swing.JButton();
+        jButton1 = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle(" SICA Beta 2015");
@@ -92,6 +91,13 @@ public class Home extends javax.swing.JFrame {
             }
         });
 
+        jButton1.setText("Cadastro de Usuários");
+        jButton1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton1ActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -100,12 +106,13 @@ public class Home extends javax.swing.JFrame {
                 .addContainerGap()
                 .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jButtonCadatro, javax.swing.GroupLayout.PREFERRED_SIZE, 179, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jButtonLocalizar, javax.swing.GroupLayout.PREFERRED_SIZE, 179, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jButtonSair, javax.swing.GroupLayout.PREFERRED_SIZE, 179, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jButtonLocalizar1, javax.swing.GroupLayout.PREFERRED_SIZE, 179, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jButtonAtualizar, javax.swing.GroupLayout.PREFERRED_SIZE, 179, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addComponent(jButtonCadatro, javax.swing.GroupLayout.DEFAULT_SIZE, 179, Short.MAX_VALUE)
+                    .addComponent(jButtonLocalizar, javax.swing.GroupLayout.DEFAULT_SIZE, 179, Short.MAX_VALUE)
+                    .addComponent(jButtonSair, javax.swing.GroupLayout.DEFAULT_SIZE, 179, Short.MAX_VALUE)
+                    .addComponent(jButtonLocalizar1, javax.swing.GroupLayout.DEFAULT_SIZE, 179, Short.MAX_VALUE)
+                    .addComponent(jButtonAtualizar, javax.swing.GroupLayout.DEFAULT_SIZE, 179, Short.MAX_VALUE)
+                    .addComponent(jButton1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addContainerGap(22, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
@@ -121,6 +128,8 @@ public class Home extends javax.swing.JFrame {
                         .addComponent(jButtonLocalizar1, javax.swing.GroupLayout.PREFERRED_SIZE, 64, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addComponent(jButtonAtualizar, javax.swing.GroupLayout.PREFERRED_SIZE, 64, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 76, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addComponent(jButtonSair, javax.swing.GroupLayout.PREFERRED_SIZE, 64, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(layout.createSequentialGroup()
@@ -137,14 +146,15 @@ public class Home extends javax.swing.JFrame {
     }//GEN-LAST:event_jButtonSairActionPerformed
 
     private void jButtonCadatroActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonCadatroActionPerformed
+        gui.Login login = new Login();
         
-        Cadastro ja = new Cadastro();  
+        Cadastro ja = new Cadastro();
         ja.setVisible(true);
-            
+
     }//GEN-LAST:event_jButtonCadatroActionPerformed
 
     private void jButtonLocalizarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonLocalizarActionPerformed
-        
+
         Busca jb = new Busca();
         jb.setVisible(true);
     }//GEN-LAST:event_jButtonLocalizarActionPerformed
@@ -158,6 +168,11 @@ public class Home extends javax.swing.JFrame {
         AtualizarDados at = new AtualizarDados();
         at.setVisible(true);
     }//GEN-LAST:event_jButtonAtualizarActionPerformed
+
+    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+        CadastroUsuario cu = new CadastroUsuario();
+        cu.setVisible(true);
+    }//GEN-LAST:event_jButton1ActionPerformed
 
     /**
      * @param args the command line arguments
@@ -195,6 +210,7 @@ public class Home extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton jButton1;
     private javax.swing.JButton jButtonAtualizar;
     private javax.swing.JButton jButtonCadatro;
     private javax.swing.JButton jButtonLocalizar;

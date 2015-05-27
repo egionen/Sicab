@@ -176,7 +176,7 @@ public class Login extends javax.swing.JFrame {
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
 
         String senha = null, senhadigitada,usuario;
-        
+        String funcao;
         usuario = jTextFieldUsuario.getText();
         senhadigitada = jTextFieldSenha.getText();
         if(senhadigitada.isEmpty() || usuario.isEmpty()){
@@ -194,6 +194,7 @@ public class Login extends javax.swing.JFrame {
 
             while (rs.next()) {
                 senha = rs.getString("senha");
+                funcao = rs.getString("funcao");
                 
             }
 
