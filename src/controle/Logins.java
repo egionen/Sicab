@@ -5,7 +5,6 @@
  */
 package controle;
 
-import static controle.Usuarios_.matricula;
 import java.io.Serializable;
 import javax.persistence.Basic;
 import javax.persistence.Column;
@@ -18,7 +17,7 @@ import javax.xml.bind.annotation.XmlRootElement;
 
 /**
  *
- * @author 14214290002
+ * @author Victor
  */
 @Entity
 @Table(name = "Logins")
@@ -26,7 +25,8 @@ import javax.xml.bind.annotation.XmlRootElement;
 @NamedQueries({
     @NamedQuery(name = "Logins.findAll", query = "SELECT l FROM Logins l"),
     @NamedQuery(name = "Logins.findByUsuario", query = "SELECT l FROM Logins l WHERE l.usuario = :usuario"),
-    @NamedQuery(name = "Logins.findBySenha", query = "SELECT l FROM Logins l WHERE l.senha = :senha")})
+    @NamedQuery(name = "Logins.findBySenha", query = "SELECT l FROM Logins l WHERE l.senha = :senha"),
+    @NamedQuery(name = "Logins.findByFuncao", query = "SELECT l FROM Logins l WHERE l.funcao = :funcao")})
 public class Logins implements Serializable {
     private static final long serialVersionUID = 1L;
     @Id
@@ -36,6 +36,9 @@ public class Logins implements Serializable {
     @Basic(optional = false)
     @Column(name = "senha")
     private String senha;
+    @Basic(optional = false)
+    @Column(name = "funcao")
+    private String funcao;
 
     public Logins() {
     }
@@ -44,9 +47,10 @@ public class Logins implements Serializable {
         this.usuario = usuario;
     }
 
-    public Logins(String usuario, String senha) {
+    public Logins(String usuario, String senha, String funcao) {
         this.usuario = usuario;
         this.senha = senha;
+        this.funcao = funcao;
     }
 
     public String getUsuario() {
@@ -54,9 +58,7 @@ public class Logins implements Serializable {
     }
 
     public void setUsuario(String usuario) {
-        String oldUsuario = this.usuario;
         this.usuario = usuario;
-            
     }
 
     public String getSenha() {
@@ -65,6 +67,14 @@ public class Logins implements Serializable {
 
     public void setSenha(String senha) {
         this.senha = senha;
+    }
+
+    public String getFuncao() {
+        return funcao;
+    }
+
+    public void setFuncao(String funcao) {
+        this.funcao = funcao;
     }
 
     @Override
