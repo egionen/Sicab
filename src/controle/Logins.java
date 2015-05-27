@@ -5,6 +5,7 @@
  */
 package controle;
 
+import static controle.Usuarios_.matricula;
 import java.io.Serializable;
 import javax.persistence.Basic;
 import javax.persistence.Column;
@@ -53,7 +54,9 @@ public class Logins implements Serializable {
     }
 
     public void setUsuario(String usuario) {
+        String oldUsuario = this.usuario;
         this.usuario = usuario;
+            
     }
 
     public String getSenha() {
