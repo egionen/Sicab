@@ -325,20 +325,23 @@ public class AtualizarDados extends javax.swing.JFrame {
                     st.executeQuery("Select * FROM Usuarios WHERE telefone1='" + this.jTextFieldBusca.getText() + "'");
                     ResultSet rs = st.getResultSet();
                     String resultado = null;
+                    
 
 //            JOptionPane.showMessageDialog(rootPane, "Este e o resultset\n:" + rs);
                     if (jTextFieldBusca.getText().equals("     -     ")) {
                         JOptionPane.showMessageDialog(rootPane, "Campo de Busca não pode retornar vazio");
                     } else {
                         while (rs.next()) {
-
+                            
                             jTextFieldNome.setText(rs.getString("nome"));
                             jTextFieldCpf.setText(rs.getString("cpf"));
                             jTextFieldPlano.setText(rs.getString("plano"));
                             jTextFieldTelefone1.setText(rs.getString("telefone1"));
                             jTextFieldTelefone2.setText(rs.getString("telefone2"));
                             jTextFieldEndereco.setText(rs.getString("endereço"));
-                        }
+                        }if (jTextFieldNome.getText().isEmpty()){
+                            JOptionPane.showMessageDialog(rootPane, "Aluno não existe");
+                        }else{
                     
 
                     jTextFieldNome.setEnabled(true);
@@ -346,7 +349,7 @@ public class AtualizarDados extends javax.swing.JFrame {
                     jTextFieldPlano.setEnabled(true);
                     jTextFieldTelefone1.setEnabled(true);
                     jTextFieldTelefone2.setEnabled(true);
-                    jTextFieldEndereco.setEnabled(true);}
+                    jTextFieldEndereco.setEnabled(true);}}
             
 
 //                JOptionPane.showMessageDialog(rootPane, "Aluno nao existe! Numero errado!");
