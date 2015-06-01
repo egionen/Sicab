@@ -18,6 +18,9 @@ public class HomeSecretario extends javax.swing.JFrame {
      */
     public HomeSecretario() {
         initComponents();
+        
+        jButtonCadastroUsu.setVisible(false);
+        jButtonLocalizar1.setVisible(false);
     }
 
     /**
@@ -36,7 +39,7 @@ public class HomeSecretario extends javax.swing.JFrame {
         jButtonSair = new javax.swing.JButton();
         jButtonLocalizar1 = new javax.swing.JButton();
         jButtonAtualizar = new javax.swing.JButton();
-        jButton1 = new javax.swing.JButton();
+        jButtonCadastroUsu = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle(" SICA Beta 2015");
@@ -93,10 +96,10 @@ public class HomeSecretario extends javax.swing.JFrame {
             }
         });
 
-        jButton1.setText("Cadastro de Usuários");
-        jButton1.addActionListener(new java.awt.event.ActionListener() {
+        jButtonCadastroUsu.setText("Cadastro de Usuários");
+        jButtonCadastroUsu.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton1ActionPerformed(evt);
+                jButtonCadastroUsuActionPerformed(evt);
             }
         });
 
@@ -114,7 +117,7 @@ public class HomeSecretario extends javax.swing.JFrame {
                     .addComponent(jButtonSair, javax.swing.GroupLayout.DEFAULT_SIZE, 179, Short.MAX_VALUE)
                     .addComponent(jButtonLocalizar1, javax.swing.GroupLayout.DEFAULT_SIZE, 179, Short.MAX_VALUE)
                     .addComponent(jButtonAtualizar, javax.swing.GroupLayout.DEFAULT_SIZE, 179, Short.MAX_VALUE)
-                    .addComponent(jButton1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addComponent(jButtonCadastroUsu, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addContainerGap(22, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
@@ -131,7 +134,7 @@ public class HomeSecretario extends javax.swing.JFrame {
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addComponent(jButtonAtualizar, javax.swing.GroupLayout.PREFERRED_SIZE, 64, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 76, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(jButtonCadastroUsu, javax.swing.GroupLayout.PREFERRED_SIZE, 76, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addComponent(jButtonSair, javax.swing.GroupLayout.PREFERRED_SIZE, 64, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(layout.createSequentialGroup()
@@ -170,9 +173,9 @@ public class HomeSecretario extends javax.swing.JFrame {
         at.setVisible(true);
     }//GEN-LAST:event_jButtonAtualizarActionPerformed
 
-    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+    private void jButtonCadastroUsuActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonCadastroUsuActionPerformed
        JOptionPane.showMessageDialog(rootPane, "Desculpe mas você não pode acessar aqui!");
-    }//GEN-LAST:event_jButton1ActionPerformed
+    }//GEN-LAST:event_jButtonCadastroUsuActionPerformed
 
     /**
      * @param args the command line arguments
@@ -203,6 +206,10 @@ public class HomeSecretario extends javax.swing.JFrame {
         //</editor-fold>
         //</editor-fold>
         //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
 
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
@@ -213,8 +220,8 @@ public class HomeSecretario extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton jButton1;
     private javax.swing.JButton jButtonAtualizar;
+    private javax.swing.JButton jButtonCadastroUsu;
     private javax.swing.JButton jButtonCadatro;
     private javax.swing.JButton jButtonLocalizar;
     private javax.swing.JButton jButtonLocalizar1;
