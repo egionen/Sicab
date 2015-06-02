@@ -40,6 +40,7 @@ public class HomeSecretario extends javax.swing.JFrame {
         jButtonLocalizar1 = new javax.swing.JButton();
         jButtonAtualizar = new javax.swing.JButton();
         jButtonCadastroUsu = new javax.swing.JButton();
+        jButtonTrocaUsu = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle(" SICA Beta 2015");
@@ -103,6 +104,13 @@ public class HomeSecretario extends javax.swing.JFrame {
             }
         });
 
+        jButtonTrocaUsu.setText("Trocar Usuario");
+        jButtonTrocaUsu.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButtonTrocaUsuActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -117,7 +125,8 @@ public class HomeSecretario extends javax.swing.JFrame {
                     .addComponent(jButtonSair, javax.swing.GroupLayout.DEFAULT_SIZE, 179, Short.MAX_VALUE)
                     .addComponent(jButtonLocalizar1, javax.swing.GroupLayout.DEFAULT_SIZE, 179, Short.MAX_VALUE)
                     .addComponent(jButtonAtualizar, javax.swing.GroupLayout.DEFAULT_SIZE, 179, Short.MAX_VALUE)
-                    .addComponent(jButtonCadastroUsu, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addComponent(jButtonCadastroUsu, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(jButtonTrocaUsu, javax.swing.GroupLayout.DEFAULT_SIZE, 179, Short.MAX_VALUE))
                 .addContainerGap(22, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
@@ -136,6 +145,8 @@ public class HomeSecretario extends javax.swing.JFrame {
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addComponent(jButtonCadastroUsu, javax.swing.GroupLayout.PREFERRED_SIZE, 76, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(jButtonTrocaUsu, javax.swing.GroupLayout.PREFERRED_SIZE, 64, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(18, 18, 18)
                         .addComponent(jButtonSair, javax.swing.GroupLayout.PREFERRED_SIZE, 64, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(layout.createSequentialGroup()
                         .addContainerGap()
@@ -176,6 +187,14 @@ public class HomeSecretario extends javax.swing.JFrame {
     private void jButtonCadastroUsuActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonCadastroUsuActionPerformed
        JOptionPane.showMessageDialog(rootPane, "Desculpe mas você não pode acessar aqui!");
     }//GEN-LAST:event_jButtonCadastroUsuActionPerformed
+
+    private void jButtonTrocaUsuActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonTrocaUsuActionPerformed
+        // TODO add your handling code here:
+        this.dispose();
+        Login lo = new Login();
+        lo.setVisible(true);
+
+    }//GEN-LAST:event_jButtonTrocaUsuActionPerformed
 
     /**
      * @param args the command line arguments
@@ -226,6 +245,7 @@ public class HomeSecretario extends javax.swing.JFrame {
     private javax.swing.JButton jButtonLocalizar;
     private javax.swing.JButton jButtonLocalizar1;
     private javax.swing.JButton jButtonSair;
+    private javax.swing.JButton jButtonTrocaUsu;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JPanel jPanel1;
     // End of variables declaration//GEN-END:variables
