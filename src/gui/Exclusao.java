@@ -19,10 +19,9 @@ public class Exclusao extends javax.swing.JFrame {
 
     /**
      * Creates new form Exclusao
-     * 
-     * 
+     *
+     *
      */
-   
     public Exclusao() {
         initComponents();
     }
@@ -126,38 +125,41 @@ public class Exclusao extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void jButtonExcluirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonExcluirActionPerformed
-        
+
         try {
             //Registra JDBC driver
             Class.forName("com.mysql.jdbc.Driver");
- 
+
             //Abrindo a conexão
             Connection conn = DriverManager.getConnection("jdbc:mysql://db4free.net:3306/sica?zeroDateTimeBehavior=convertToNull", "sica", "1122448816");
- 
+
             //Executa a query de exclusão
             java.sql.Statement st = conn.createStatement();
-           
-          
+
             st.executeQuery("Select * FROM Usuarios WHERE telefone1='" + this.jTextFieldTelefone1.getText() + "'");
-           String nome = null,matricula = null,cpf = null;
+            String nome = null, matricula = null, cpf = null;
             ResultSet rs = st.getResultSet();
-           while(rs.next()){
-           matricula = rs.getString("matricula");
-           nome = rs.getString("nome");
-           cpf = rs.getString("cpf");
-          
-           
-           }
+            if (jTextFieldTelefone1.getText().equals("     -     ")) {
+                JOptionPane.showMessageDialog(rootPane, "Campo de Busca não pode retornar vazio!");
+            } else {
+                while (rs.next()) {
+                    matricula = rs.getString("matricula");
+                    nome = rs.getString("nome");
+                    cpf = rs.getString("cpf");
+
+                }
+            
 //            String nome = rs.getString("nome");
-            
-            int opcao = JOptionPane.showConfirmDialog(rootPane, "Matricula ="+matricula+" \nCPF = "+cpf+"\nVocê realmente deseja excluir o "+nome+"?", "Confirmação", JOptionPane.YES_NO_OPTION);
-            if (opcao == JOptionPane.YES_OPTION){ 
-            st.executeUpdate("DELETE FROM Usuarios WHERE telefone1='" + this.jTextFieldTelefone1.getText() + "'");
-            JOptionPane.showMessageDialog(rootPane, "Aluno excluído");}
-            
-            
+
+            int opcao = JOptionPane.showConfirmDialog(rootPane, "Matricula =" + matricula + " \nCPF = " + cpf + "\nVocê realmente deseja excluir o " + nome + "?", "Confirmação", JOptionPane.YES_NO_OPTION);
+            if (opcao == JOptionPane.YES_OPTION) {
+                st.executeUpdate("DELETE FROM Usuarios WHERE telefone1='" + this.jTextFieldTelefone1.getText() + "'");
+                JOptionPane.showMessageDialog(rootPane, "Aluno excluído");
+            }
+            }
         } catch (SQLException | ClassNotFoundException e) {
-            JOptionPane.showMessageDialog(rootPane, e);}
+            JOptionPane.showMessageDialog(rootPane, e);
+        }
     }//GEN-LAST:event_jButtonExcluirActionPerformed
 
     private void jButtonVoltarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonVoltarActionPerformed
