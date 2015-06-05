@@ -5,7 +5,7 @@
  */
 package gui;
 
-import gui.Home;
+
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.ResultSet;
@@ -22,7 +22,9 @@ public class Login extends javax.swing.JFrame {
      * Creates new form Login
      */
     public Login() {
+
         initComponents();
+        getRootPane().setDefaultButton(jButton1);
 
     }
 
@@ -50,21 +52,11 @@ public class Login extends javax.swing.JFrame {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("Login");
-        addKeyListener(new java.awt.event.KeyAdapter() {
-            public void keyPressed(java.awt.event.KeyEvent evt) {
-                formKeyPressed(evt);
-            }
-        });
 
         jButton1.setText("Logar");
         jButton1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButton1ActionPerformed(evt);
-            }
-        });
-        jButton1.addKeyListener(new java.awt.event.KeyAdapter() {
-            public void keyPressed(java.awt.event.KeyEvent evt) {
-                jButton1KeyPressed(evt);
             }
         });
 
@@ -109,9 +101,7 @@ public class Login extends javax.swing.JFrame {
                             .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 85, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addGap(18, 18, 18)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(layout.createSequentialGroup()
-                                .addComponent(jLabel7, javax.swing.GroupLayout.PREFERRED_SIZE, 144, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(22, 22, 22))
+                            .addComponent(jLabel7, javax.swing.GroupLayout.PREFERRED_SIZE, 144, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addGroup(layout.createSequentialGroup()
                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                                     .addComponent(jTextFieldUsuario)
@@ -185,17 +175,20 @@ public class Login extends javax.swing.JFrame {
                         JOptionPane.showMessageDialog(rootPane, "Logado como Administrador");
                         Home ho = new Home();
                         ho.setVisible(true);
+                        this.dispose();
                     }
 
                     if (funcao.equals("Secretário")) {
                         JOptionPane.showMessageDialog(rootPane, "Logado como Secretário");
                         HomeSecretario ho = new HomeSecretario();
                         ho.setVisible(true);
+                        this.dispose();
                     }
                     if (funcao.equals("Professor")) {
                         JOptionPane.showMessageDialog(rootPane, "Logado como Professor");
                         HomeProfessor ho = new HomeProfessor();
                         ho.setVisible(true);
+                        this.dispose();
 
                     }
 
@@ -214,21 +207,12 @@ public class Login extends javax.swing.JFrame {
                 JOptionPane.showMessageDialog(rootPane, e);
             }
         }
-        dispose();
 
     }//GEN-LAST:event_jButton1ActionPerformed
 
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
         System.exit(0);
     }//GEN-LAST:event_jButton2ActionPerformed
-
-    private void formKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_formKeyPressed
-
-    }//GEN-LAST:event_formKeyPressed
-
-    private void jButton1KeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jButton1KeyPressed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jButton1KeyPressed
 
     /**
      * @param args the command line arguments

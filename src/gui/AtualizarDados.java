@@ -5,6 +5,7 @@
  */
 package gui;
 
+import java.awt.event.KeyEvent;
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.ResultSet;
@@ -22,6 +23,7 @@ public class AtualizarDados extends javax.swing.JFrame {
      */
     public AtualizarDados() {
         initComponents();
+                getRootPane().setDefaultButton(jButtonAtualizar);
     }
 
     /**
@@ -82,6 +84,11 @@ public class AtualizarDados extends javax.swing.JFrame {
                 jTextFieldBuscaActionPerformed(evt);
             }
         });
+        jTextFieldBusca.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyPressed(java.awt.event.KeyEvent evt) {
+                jTextFieldBuscaKeyPressed(evt);
+            }
+        });
 
         jTextFieldNome.setEnabled(false);
 
@@ -99,6 +106,7 @@ public class AtualizarDados extends javax.swing.JFrame {
         jLabel8.setText("Atualizar Dados");
 
         jButtonAtualizar.setText("Atualizar!");
+        jButtonAtualizar.setEnabled(false);
         jButtonAtualizar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButtonAtualizarActionPerformed(evt);
@@ -279,7 +287,7 @@ public class AtualizarDados extends javax.swing.JFrame {
 
     private void jButtonPesquisarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonPesquisarActionPerformed
 
-
+        
         try {
 
             Class.forName("com.mysql.jdbc.Driver");
@@ -307,6 +315,7 @@ public class AtualizarDados extends javax.swing.JFrame {
                     JOptionPane.showMessageDialog(rootPane, "Aluno não existe! O número está incorreto !");
                 } else {
 
+                    jButtonAtualizar.setEnabled(true);
                     jTextFieldNome.setEnabled(true);
                     jTextFieldCpf.setEnabled(true);
                     jTextFieldPlano.setEnabled(true);
@@ -332,7 +341,8 @@ public class AtualizarDados extends javax.swing.JFrame {
         jTextFieldTelefone1.setText("");
         jTextFieldTelefone2.setText("");
         jTextFieldEndereco.setText("");
-
+        
+        jButtonAtualizar.setEnabled(false);
         jTextFieldNome.setEnabled(false);
         jTextFieldCpf.setEnabled(false);
         jTextFieldPlano.setEnabled(false);
@@ -340,6 +350,16 @@ public class AtualizarDados extends javax.swing.JFrame {
         jTextFieldTelefone2.setEnabled(false);
         jTextFieldEndereco.setEnabled(false);
     }//GEN-LAST:event_jButton1ActionPerformed
+
+    private void jTextFieldBuscaKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jTextFieldBuscaKeyPressed
+        
+        if(evt.getKeyCode() == KeyEvent.VK_ENTER){
+        
+            jButtonPesquisar.doClick();
+        
+        }
+        
+    }//GEN-LAST:event_jTextFieldBuscaKeyPressed
 
     /**
      * @param args the command line arguments

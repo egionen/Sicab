@@ -26,6 +26,7 @@ public class Cadastro extends javax.swing.JFrame {
      */
     public Cadastro() {
         initComponents();
+        getRootPane().setDefaultButton(jButtonCadastrar);
     }
 
     /**
@@ -311,7 +312,7 @@ public class Cadastro extends javax.swing.JFrame {
         usuarios.setEndereço(jTextFieldEndereco.getText());
 
         cpf = jTextFieldCpf.toString();
-            if ((jTextFieldNome.getText().isEmpty()) && (jTextFieldCpf.getText().equals("   .   .   -  ")) && (jTextFieldTelefone1.getText().equals("     -     ")) && (jTextFieldEndereco.getText().isEmpty())) {
+        if ((jTextFieldNome.getText().isEmpty()) && (jTextFieldCpf.getText().equals("   .   .   -  ")) && (jTextFieldTelefone1.getText().equals("     -     ")) && (jTextFieldEndereco.getText().isEmpty())) {
 
             JOptionPane.showMessageDialog(rootPane, "Os campos não podem retornar vazios");
 
@@ -323,17 +324,17 @@ public class Cadastro extends javax.swing.JFrame {
             if ((jTextFieldEndereco.getText().isEmpty())) {
 
                 JOptionPane.showMessageDialog(rootPane, "O campo ENDEREÇO não pode retornar vazio");
-            
+
             }
             if ((jTextFieldTelefone1.getText().equals("     -     "))) {
 
                 JOptionPane.showMessageDialog(rootPane, "O campo TELEFONE 1 não pode retornar vazio");
-            }if ((jTextFieldCpf.getText().equals("   .   .   -  "))) {
+            }
+            if ((jTextFieldCpf.getText().equals("   .   .   -  "))) {
 
                 JOptionPane.showMessageDialog(rootPane, "O campo CPF não pode retornar vazio");
-            
 
-            } else{
+            } else {
                 if (!(new CPF(jTextFieldCpf.getText())).isValidCPF()) {
                     JOptionPane.showMessageDialog(rootPane, "CPF inválido");
 
@@ -356,7 +357,8 @@ public class Cadastro extends javax.swing.JFrame {
                     jTextFieldEndereco.setText("");
                 }
 
-            }}
+            }
+        }
 
 
     }//GEN-LAST:event_jButtonCadastrarActionPerformed

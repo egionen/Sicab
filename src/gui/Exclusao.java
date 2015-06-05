@@ -24,6 +24,7 @@ public class Exclusao extends javax.swing.JFrame {
      */
     public Exclusao() {
         initComponents();
+        getRootPane().setDefaultButton(jButtonExcluir);
     }
 
     /**
