@@ -5,17 +5,28 @@
  */
 package gui;
 
+import java.awt.Graphics;
+import java.awt.Image;
+import javax.swing.ImageIcon;
+
 /**
  *
  * @author Victor
  */
 public class Home extends javax.swing.JFrame {
-
+     
+  
+   
     /**
      * Creates new form Home
      */
     public Home() {
         initComponents();
+        this.setSize(768, 650);
+        
+   
+        
+        
                 
     }
 
@@ -28,8 +39,6 @@ public class Home extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        jPanel1 = new javax.swing.JPanel();
-        jLabel2 = new javax.swing.JLabel();
         jButtonCadatro = new javax.swing.JButton();
         jButtonLocalizar = new javax.swing.JButton();
         jButtonSair = new javax.swing.JButton();
@@ -37,118 +46,109 @@ public class Home extends javax.swing.JFrame {
         jButtonAtualizar = new javax.swing.JButton();
         jButton1 = new javax.swing.JButton();
         jButtonTrocaUsu = new javax.swing.JButton();
+        jLabel1 = new javax.swing.JLabel();
+        jLabel4 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle(" SICA Beta 2015");
+        setAutoRequestFocus(false);
+        setBackground(new java.awt.Color(0, 0, 0));
+        setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
         setName("SICA"); // NOI18N
+        setResizable(false);
+        getContentPane().setLayout(null);
 
-        jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagens/Logo.png"))); // NOI18N
-
-        javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
-        jPanel1.setLayout(jPanel1Layout);
-        jPanel1Layout.setHorizontalGroup(
-            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jLabel2, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-        );
-        jPanel1Layout.setVerticalGroup(
-            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(jLabel2, javax.swing.GroupLayout.DEFAULT_SIZE, 601, Short.MAX_VALUE)
-                .addContainerGap())
-        );
-
-        jButtonCadatro.setText("Cadastro");
+        jButtonCadatro.setBackground(new java.awt.Color(255, 255, 255));
+        jButtonCadatro.setForeground(new java.awt.Color(255, 255, 255));
+        jButtonCadatro.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagens/7818_64x64.png"))); // NOI18N
+        jButtonCadatro.setToolTipText("Cadastro");
+        jButtonCadatro.setBorder(null);
+        jButtonCadatro.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         jButtonCadatro.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButtonCadatroActionPerformed(evt);
             }
         });
+        getContentPane().add(jButtonCadatro);
+        jButtonCadatro.setBounds(90, 90, 100, 110);
 
-        jButtonLocalizar.setText("Localizar");
+        jButtonLocalizar.setBackground(new java.awt.Color(255, 255, 255));
+        jButtonLocalizar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagens/7833_64x64.png"))); // NOI18N
+        jButtonLocalizar.setToolTipText("Localizar");
+        jButtonLocalizar.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         jButtonLocalizar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButtonLocalizarActionPerformed(evt);
             }
         });
+        getContentPane().add(jButtonLocalizar);
+        jButtonLocalizar.setBounds(270, 90, 100, 110);
 
+        jButtonSair.setBackground(new java.awt.Color(255, 255, 255));
         jButtonSair.setText("Sair");
         jButtonSair.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButtonSairActionPerformed(evt);
             }
         });
+        getContentPane().add(jButtonSair);
+        jButtonSair.setBounds(10, 550, 130, 40);
 
-        jButtonLocalizar1.setText("Exclusao");
+        jButtonLocalizar1.setBackground(new java.awt.Color(255, 255, 255));
+        jButtonLocalizar1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagens/7822_64x64.png"))); // NOI18N
+        jButtonLocalizar1.setToolTipText("Excluir");
+        jButtonLocalizar1.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         jButtonLocalizar1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButtonLocalizar1ActionPerformed(evt);
             }
         });
+        getContentPane().add(jButtonLocalizar1);
+        jButtonLocalizar1.setBounds(460, 90, 100, 110);
 
-        jButtonAtualizar.setText("Atualizar Dados");
+        jButtonAtualizar.setBackground(new java.awt.Color(255, 255, 255));
+        jButtonAtualizar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagens/7824_64x64.png"))); // NOI18N
+        jButtonAtualizar.setToolTipText("Editar dados");
+        jButtonAtualizar.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         jButtonAtualizar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButtonAtualizarActionPerformed(evt);
             }
         });
+        getContentPane().add(jButtonAtualizar);
+        jButtonAtualizar.setBounds(270, 310, 100, 110);
 
-        jButton1.setText("Cadastro de Usuários");
+        jButton1.setBackground(new java.awt.Color(255, 255, 255));
+        jButton1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagens/7764_64x64.png"))); // NOI18N
+        jButton1.setToolTipText("Cadastro de Usuarios");
+        jButton1.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         jButton1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButton1ActionPerformed(evt);
             }
         });
+        getContentPane().add(jButton1);
+        jButton1.setBounds(80, 310, 100, 110);
 
+        jButtonTrocaUsu.setBackground(new java.awt.Color(255, 255, 255));
         jButtonTrocaUsu.setText("Trocar Usuario");
         jButtonTrocaUsu.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButtonTrocaUsuActionPerformed(evt);
             }
         });
+        getContentPane().add(jButtonTrocaUsu);
+        jButtonTrocaUsu.setBounds(10, 510, 129, 37);
 
-        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
-        getContentPane().setLayout(layout);
-        layout.setHorizontalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(jButtonCadatro, javax.swing.GroupLayout.DEFAULT_SIZE, 179, Short.MAX_VALUE)
-                    .addComponent(jButtonLocalizar, javax.swing.GroupLayout.DEFAULT_SIZE, 179, Short.MAX_VALUE)
-                    .addComponent(jButtonSair, javax.swing.GroupLayout.DEFAULT_SIZE, 179, Short.MAX_VALUE)
-                    .addComponent(jButtonLocalizar1, javax.swing.GroupLayout.DEFAULT_SIZE, 179, Short.MAX_VALUE)
-                    .addComponent(jButtonAtualizar, javax.swing.GroupLayout.DEFAULT_SIZE, 179, Short.MAX_VALUE)
-                    .addComponent(jButton1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(jButtonTrocaUsu, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                .addContainerGap(22, Short.MAX_VALUE))
-        );
-        layout.setVerticalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(84, 84, 84)
-                        .addComponent(jButtonCadatro, javax.swing.GroupLayout.PREFERRED_SIZE, 64, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(18, 18, 18)
-                        .addComponent(jButtonLocalizar, javax.swing.GroupLayout.PREFERRED_SIZE, 64, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(18, 18, 18)
-                        .addComponent(jButtonLocalizar1, javax.swing.GroupLayout.PREFERRED_SIZE, 64, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(jButtonAtualizar, javax.swing.GroupLayout.PREFERRED_SIZE, 64, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 76, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jButtonTrocaUsu, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addGap(18, 18, 18)
-                        .addComponent(jButtonSair, javax.swing.GroupLayout.PREFERRED_SIZE, 64, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(layout.createSequentialGroup()
-                        .addContainerGap()
-                        .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
-                .addContainerGap())
-        );
+        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagens/logo_1_1.png"))); // NOI18N
+        jLabel1.setText("Logo");
+        getContentPane().add(jLabel1);
+        jLabel1.setBounds(0, 0, 260, 110);
+
+        jLabel4.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagens/Fundo1.png"))); // NOI18N
+        jLabel4.setText("jLabel4");
+        getContentPane().add(jLabel4);
+        jLabel4.setBounds(1, -4, 770, 650);
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
@@ -221,11 +221,15 @@ public class Home extends javax.swing.JFrame {
             java.util.logging.Logger.getLogger(Home.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
         //</editor-fold>
+        //</editor-fold>
 
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
                 new Home().setVisible(true);
+                
+                
+                
             }
         });
     }
@@ -238,7 +242,7 @@ public class Home extends javax.swing.JFrame {
     private javax.swing.JButton jButtonLocalizar1;
     private javax.swing.JButton jButtonSair;
     private javax.swing.JButton jButtonTrocaUsu;
-    private javax.swing.JLabel jLabel2;
-    private javax.swing.JPanel jPanel1;
+    private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel4;
     // End of variables declaration//GEN-END:variables
 }
