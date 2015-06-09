@@ -23,7 +23,8 @@ public class AtualizarDados extends javax.swing.JFrame {
      */
     public AtualizarDados() {
         initComponents();
-                getRootPane().setDefaultButton(jButtonAtualizar);
+        getRootPane().setDefaultButton(jButtonAtualizar);
+        this.setSize(850, 750);
     }
 
     /**
@@ -61,23 +62,46 @@ public class AtualizarDados extends javax.swing.JFrame {
         jLabel9 = new javax.swing.JLabel();
         jButtonPesquisar = new javax.swing.JButton();
         jButton1 = new javax.swing.JButton();
+        jLabel10 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         setTitle("Atualizar Dados");
+        getContentPane().setLayout(null);
 
+        jLabel1.setFont(new java.awt.Font("Nirmala UI", 0, 18)); // NOI18N
         jLabel1.setText("Telefone do Usuario");
+        getContentPane().add(jLabel1);
+        jLabel1.setBounds(12, 132, 176, 37);
 
+        jLabel2.setFont(new java.awt.Font("Nirmala UI", 0, 18)); // NOI18N
         jLabel2.setText("Novo Cpf");
+        getContentPane().add(jLabel2);
+        jLabel2.setBounds(12, 231, 131, 37);
 
+        jLabel3.setFont(new java.awt.Font("Nirmala UI", 0, 18)); // NOI18N
         jLabel3.setText("Novo Nome");
+        getContentPane().add(jLabel3);
+        jLabel3.setBounds(12, 182, 131, 37);
 
+        jLabel4.setFont(new java.awt.Font("Nirmala UI", 0, 18)); // NOI18N
         jLabel4.setText("Novo Telefone");
+        getContentPane().add(jLabel4);
+        jLabel4.setBounds(12, 278, 131, 37);
 
+        jLabel5.setFont(new java.awt.Font("Nirmala UI", 0, 18)); // NOI18N
         jLabel5.setText("Novo Telefone");
+        getContentPane().add(jLabel5);
+        jLabel5.setBounds(12, 327, 131, 37);
 
+        jLabel6.setFont(new java.awt.Font("Nirmala UI", 0, 18)); // NOI18N
         jLabel6.setText("Novo Endereço");
+        getContentPane().add(jLabel6);
+        jLabel6.setBounds(12, 376, 131, 37);
 
+        jLabel7.setFont(new java.awt.Font("Nirmala UI", 0, 18)); // NOI18N
         jLabel7.setText("Novo Plano");
+        getContentPane().add(jLabel7);
+        jLabel7.setBounds(12, 425, 131, 37);
 
         jTextFieldBusca.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -89,192 +113,141 @@ public class AtualizarDados extends javax.swing.JFrame {
                 jTextFieldBuscaKeyPressed(evt);
             }
         });
+        getContentPane().add(jTextFieldBusca);
+        jTextFieldBusca.setBounds(200, 132, 329, 37);
 
         jTextFieldNome.setEnabled(false);
+        getContentPane().add(jTextFieldNome);
+        jTextFieldNome.setBounds(200, 184, 326, 34);
 
         jTextFieldCpf.setEnabled(false);
+        getContentPane().add(jTextFieldCpf);
+        jTextFieldCpf.setBounds(200, 231, 326, 34);
 
         jTextFieldTelefone1.setEnabled(false);
+        getContentPane().add(jTextFieldTelefone1);
+        jTextFieldTelefone1.setBounds(200, 278, 326, 42);
 
         jTextFieldTelefone2.setEnabled(false);
+        getContentPane().add(jTextFieldTelefone2);
+        jTextFieldTelefone2.setBounds(200, 327, 326, 34);
 
         jTextFieldEndereco.setEnabled(false);
+        getContentPane().add(jTextFieldEndereco);
+        jTextFieldEndereco.setBounds(200, 374, 326, 34);
 
         jTextFieldPlano.setEnabled(false);
+        getContentPane().add(jTextFieldPlano);
+        jTextFieldPlano.setBounds(200, 421, 326, 32);
 
-        jLabel8.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
-        jLabel8.setText("Atualizar Dados");
+        jLabel8.setFont(new java.awt.Font("Nirmala UI", 0, 18)); // NOI18N
+        jLabel8.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagens/7824_64x64.png"))); // NOI18N
+        jLabel8.setText("Editar Dados");
+        getContentPane().add(jLabel8);
+        jLabel8.setBounds(27, 13, 306, 101);
 
-        jButtonAtualizar.setText("Atualizar!");
+        jButtonAtualizar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagens/7881_64x64.png"))); // NOI18N
         jButtonAtualizar.setEnabled(false);
         jButtonAtualizar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButtonAtualizarActionPerformed(evt);
             }
         });
+        getContentPane().add(jButtonAtualizar);
+        jButtonAtualizar.setBounds(707, 633, 97, 73);
 
-        jButtonVoltar.setText("Voltar");
+        jButtonVoltar.setBackground(new java.awt.Color(255, 255, 255));
+        jButtonVoltar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagens/7890_64x64_1.png"))); // NOI18N
         jButtonVoltar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButtonVoltarActionPerformed(evt);
             }
         });
+        getContentPane().add(jButtonVoltar);
+        jButtonVoltar.setBounds(12, 633, 97, 73);
 
-        jLabel9.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagens/logo1.png"))); // NOI18N
-        jLabel9.setText("jLabel9");
+        jLabel9.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagens/logo_1_1.png"))); // NOI18N
+        getContentPane().add(jLabel9);
+        jLabel9.setBounds(560, 10, 262, 110);
 
-        jButtonPesquisar.setText("Procurar");
+        jButtonPesquisar.setBackground(new java.awt.Color(255, 255, 255));
+        jButtonPesquisar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagens/iconelupa.png"))); // NOI18N
         jButtonPesquisar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButtonPesquisarActionPerformed(evt);
             }
         });
+        getContentPane().add(jButtonPesquisar);
+        jButtonPesquisar.setBounds(540, 120, 88, 60);
 
-        jButton1.setText("Limpar os Campos");
+        jButton1.setBackground(new java.awt.Color(255, 255, 255));
+        jButton1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagens/edit-clear_1.png"))); // NOI18N
         jButton1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButton1ActionPerformed(evt);
             }
         });
+        getContentPane().add(jButton1);
+        jButton1.setBounds(574, 633, 97, 73);
 
-        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
-        getContentPane().setLayout(layout);
-        layout.setHorizontalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createSequentialGroup()
-                        .addComponent(jButtonVoltar, javax.swing.GroupLayout.PREFERRED_SIZE, 180, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(jButtonAtualizar, javax.swing.GroupLayout.PREFERRED_SIZE, 180, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(27, 27, 27)
-                        .addComponent(jLabel8, javax.swing.GroupLayout.PREFERRED_SIZE, 306, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(jLabel9, javax.swing.GroupLayout.PREFERRED_SIZE, 217, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(layout.createSequentialGroup()
-                        .addContainerGap()
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                .addGroup(layout.createSequentialGroup()
-                                    .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 131, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                    .addComponent(jTextFieldCpf, javax.swing.GroupLayout.PREFERRED_SIZE, 326, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                .addGroup(layout.createSequentialGroup()
-                                    .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 131, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                    .addComponent(jTextFieldNome))
-                                .addGroup(layout.createSequentialGroup()
-                                    .addComponent(jLabel4, javax.swing.GroupLayout.PREFERRED_SIZE, 131, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                    .addComponent(jTextFieldTelefone1, javax.swing.GroupLayout.PREFERRED_SIZE, 326, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                .addGroup(layout.createSequentialGroup()
-                                    .addComponent(jLabel5, javax.swing.GroupLayout.PREFERRED_SIZE, 131, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                    .addComponent(jTextFieldTelefone2))
-                                .addGroup(layout.createSequentialGroup()
-                                    .addComponent(jLabel6, javax.swing.GroupLayout.PREFERRED_SIZE, 131, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                    .addComponent(jTextFieldEndereco, javax.swing.GroupLayout.PREFERRED_SIZE, 326, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                .addGroup(layout.createSequentialGroup()
-                                    .addComponent(jLabel7, javax.swing.GroupLayout.PREFERRED_SIZE, 131, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                    .addComponent(jTextFieldPlano, javax.swing.GroupLayout.PREFERRED_SIZE, 326, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                            .addGroup(layout.createSequentialGroup()
-                                .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 131, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(jTextFieldBusca, javax.swing.GroupLayout.PREFERRED_SIZE, 329, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                        .addGap(18, 18, 18)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jButton1)
-                            .addComponent(jButtonPesquisar, javax.swing.GroupLayout.PREFERRED_SIZE, 88, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGap(0, 206, Short.MAX_VALUE)))
-                .addContainerGap())
-        );
-        layout.setVerticalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addContainerGap()
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel8, javax.swing.GroupLayout.PREFERRED_SIZE, 36, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel9, javax.swing.GroupLayout.PREFERRED_SIZE, 55, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(11, 11, 11)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addComponent(jTextFieldBusca, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jLabel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
-                    .addGroup(layout.createSequentialGroup()
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jButtonPesquisar, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(8, 8, 8)
-                        .addComponent(jTextFieldNome, javax.swing.GroupLayout.DEFAULT_SIZE, 34, Short.MAX_VALUE)))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(8, 8, 8)
-                        .addComponent(jTextFieldCpf, javax.swing.GroupLayout.DEFAULT_SIZE, 34, Short.MAX_VALUE)))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(jLabel4, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(8, 8, 8)
-                        .addComponent(jTextFieldTelefone1, javax.swing.GroupLayout.DEFAULT_SIZE, 34, Short.MAX_VALUE)))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(jLabel5, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(8, 8, 8)
-                        .addComponent(jTextFieldTelefone2, javax.swing.GroupLayout.DEFAULT_SIZE, 34, Short.MAX_VALUE)))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(jLabel6, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(8, 8, 8)
-                        .addComponent(jTextFieldEndereco, javax.swing.GroupLayout.DEFAULT_SIZE, 34, Short.MAX_VALUE)))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(jLabel7, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jTextFieldPlano, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 11, Short.MAX_VALUE)
-                .addComponent(jButton1)
-                .addGap(98, 98, 98)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jButtonVoltar, javax.swing.GroupLayout.PREFERRED_SIZE, 62, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jButtonAtualizar, javax.swing.GroupLayout.PREFERRED_SIZE, 62, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap())
-        );
+        jLabel10.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagens/Fundo.png"))); // NOI18N
+        jLabel10.setText("jLabel10");
+        getContentPane().add(jLabel10);
+        jLabel10.setBounds(-2, -4, 840, 720);
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
     private void jButtonAtualizarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonAtualizarActionPerformed
-        try {
-            //Registra JDBC driver
-            Class.forName("com.mysql.jdbc.Driver");
+        if ((jTextFieldNome.getText().isEmpty()) && (jTextFieldCpf.getText().equals("   .   .   -  ")) && (jTextFieldTelefone1.getText().equals("     -     ")) && (jTextFieldEndereco.getText().isEmpty())) {
 
-            //Abrindo a conexão
-            Connection conn = DriverManager.getConnection("jdbc:mysql://db4free.net:3306/sica?zeroDateTimeBehavior=convertToNull", "sica", "1122448816");
+            JOptionPane.showMessageDialog(rootPane, "Os campos não podem retornar vazios");
 
-            //Executa a query de atualização
-            java.sql.Statement st = conn.createStatement();
-            st.executeUpdate("UPDATE Usuarios SET nome='"
-                    + this.jTextFieldNome.getText() + "',plano='"
-                    + this.jTextFieldPlano.getText() + "',cpf='"
-                    + this.jTextFieldCpf.getText() + "',telefone1='"
-                    + this.jTextFieldTelefone1.getText() + "',telefone2='"
-                    + this.jTextFieldTelefone2.getText() + "',endereço='"
-                    + this.jTextFieldEndereco.getText()
-                    + "' WHERE telefone1='" + this.jTextFieldBusca.getText() + "'");
-            JOptionPane.showMessageDialog(rootPane, "Aluno atualizado");
-        } catch (SQLException | ClassNotFoundException e) {
-            JOptionPane.showMessageDialog(rootPane, e);
-        }//Fim try
+        } else 
+            if ((jTextFieldNome.getText().isEmpty())) {
+
+                JOptionPane.showMessageDialog(rootPane, "O campo NOME não pode retornar vazio");
+            } else 
+                if ((jTextFieldEndereco.getText().isEmpty())) {
+
+                    JOptionPane.showMessageDialog(rootPane, "O campo ENDEREÇO não pode retornar vazio");
+
+                } else 
+                    if ((jTextFieldTelefone1.getText().equals("     -     "))) {
+
+                        JOptionPane.showMessageDialog(rootPane, "O campo TELEFONE 1 não pode retornar vazio");
+                    } else {
+                        if ((jTextFieldCpf.getText().equals("   .   .   -  "))) {
+
+                            JOptionPane.showMessageDialog(rootPane, "O campo CPF não pode retornar vazio");
+
+                        
+                    
+                
+            }else {
+                            try {
+                                //Registra JDBC driver
+                                Class.forName("com.mysql.jdbc.Driver");
+
+                                //Abrindo a conexão
+                                Connection conn = DriverManager.getConnection("jdbc:mysql://db4free.net:3306/sica?zeroDateTimeBehavior=convertToNull", "sica", "1122448816");
+
+                                //Executa a query de atualização
+                                java.sql.Statement st = conn.createStatement();
+                                st.executeUpdate("UPDATE Usuarios SET nome='"
+                                        + this.jTextFieldNome.getText() + "',plano='"
+                                        + this.jTextFieldPlano.getText() + "',cpf='"
+                                        + this.jTextFieldCpf.getText() + "',telefone1='"
+                                        + this.jTextFieldTelefone1.getText() + "',telefone2='"
+                                        + this.jTextFieldTelefone2.getText() + "',endereço='"
+                                        + this.jTextFieldEndereco.getText()
+                                        + "' WHERE telefone1='" + this.jTextFieldBusca.getText() + "'");
+                                JOptionPane.showMessageDialog(rootPane, "Aluno atualizado");
+                            } catch (SQLException | ClassNotFoundException e) {
+                                JOptionPane.showMessageDialog(rootPane, e);
+                            }
+                        }
+        }
     }//GEN-LAST:event_jButtonAtualizarActionPerformed
 
     private void jButtonVoltarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonVoltarActionPerformed
@@ -287,7 +260,6 @@ public class AtualizarDados extends javax.swing.JFrame {
 
     private void jButtonPesquisarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonPesquisarActionPerformed
 
-        
         try {
 
             Class.forName("com.mysql.jdbc.Driver");
@@ -296,8 +268,6 @@ public class AtualizarDados extends javax.swing.JFrame {
             java.sql.Statement st = conn.createStatement();
             st.executeQuery("Select * FROM Usuarios WHERE telefone1='" + this.jTextFieldBusca.getText() + "'");
             ResultSet rs = st.getResultSet();
-
-
 
             if (jTextFieldBusca.getText().equals("     -     ")) {
                 JOptionPane.showMessageDialog(rootPane, "Campo de Busca não pode retornar vazio!");
@@ -341,7 +311,7 @@ public class AtualizarDados extends javax.swing.JFrame {
         jTextFieldTelefone1.setText("");
         jTextFieldTelefone2.setText("");
         jTextFieldEndereco.setText("");
-        
+
         jButtonAtualizar.setEnabled(false);
         jTextFieldNome.setEnabled(false);
         jTextFieldCpf.setEnabled(false);
@@ -352,13 +322,13 @@ public class AtualizarDados extends javax.swing.JFrame {
     }//GEN-LAST:event_jButton1ActionPerformed
 
     private void jTextFieldBuscaKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jTextFieldBuscaKeyPressed
-        
-        if(evt.getKeyCode() == KeyEvent.VK_ENTER){
-        
+
+        if (evt.getKeyCode() == KeyEvent.VK_ENTER) {
+
             jButtonPesquisar.doClick();
-        
+
         }
-        
+
     }//GEN-LAST:event_jTextFieldBuscaKeyPressed
 
     /**
@@ -403,6 +373,7 @@ public class AtualizarDados extends javax.swing.JFrame {
     private javax.swing.JButton jButtonPesquisar;
     private javax.swing.JButton jButtonVoltar;
     private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
