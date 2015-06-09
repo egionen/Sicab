@@ -27,6 +27,7 @@ public class CadastroUsuario extends javax.swing.JFrame {
     public CadastroUsuario() {
         initComponents();
         this.setSize(610, 530);
+        getRootPane().setDefaultButton(jButtonCadastrar);
     }
 
     /**
@@ -41,12 +42,12 @@ public class CadastroUsuario extends javax.swing.JFrame {
         jLabel2 = new javax.swing.JLabel();
         jTextFieldUsuario = new javax.swing.JTextField();
         jLabel3 = new javax.swing.JLabel();
-        jTextFieldSenha = new javax.swing.JTextField();
         jLabel4 = new javax.swing.JLabel();
-        jTextFieldConfirmar = new javax.swing.JTextField();
         jButtonCadastrar = new javax.swing.JButton();
         jLabel5 = new javax.swing.JLabel();
         jComboBox1 = new javax.swing.JComboBox();
+        jTextFieldConfirmar = new javax.swing.JPasswordField();
+        jTextFieldSenha = new javax.swing.JPasswordField();
         jButton1 = new javax.swing.JButton();
         jLabel6 = new javax.swing.JLabel();
         jLabel1 = new javax.swing.JLabel();
@@ -67,20 +68,10 @@ public class CadastroUsuario extends javax.swing.JFrame {
         getContentPane().add(jLabel3);
         jLabel3.setBounds(10, 170, 97, 25);
 
-        jTextFieldSenha.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jTextFieldSenhaActionPerformed(evt);
-            }
-        });
-        getContentPane().add(jTextFieldSenha);
-        jTextFieldSenha.setBounds(150, 170, 420, 31);
-
         jLabel4.setFont(new java.awt.Font("Nirmala UI", 0, 18)); // NOI18N
         jLabel4.setText("Confirmar Senha");
         getContentPane().add(jLabel4);
         jLabel4.setBounds(10, 210, 190, 25);
-        getContentPane().add(jTextFieldConfirmar);
-        jTextFieldConfirmar.setBounds(150, 210, 420, 30);
 
         jButtonCadastrar.setBackground(new java.awt.Color(255, 255, 255));
         jButtonCadastrar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagens/7881_64x64.png"))); // NOI18N
@@ -106,6 +97,10 @@ public class CadastroUsuario extends javax.swing.JFrame {
         });
         getContentPane().add(jComboBox1);
         jComboBox1.setBounds(150, 280, 238, 35);
+        getContentPane().add(jTextFieldConfirmar);
+        jTextFieldConfirmar.setBounds(150, 210, 420, 30);
+        getContentPane().add(jTextFieldSenha);
+        jTextFieldSenha.setBounds(150, 170, 420, 30);
 
         jButton1.setBackground(new java.awt.Color(255, 255, 255));
         jButton1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagens/7890_64x64_1.png"))); // NOI18N
@@ -134,10 +129,6 @@ public class CadastroUsuario extends javax.swing.JFrame {
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
-
-    private void jTextFieldSenhaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextFieldSenhaActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jTextFieldSenhaActionPerformed
 
     private void jButtonCadastrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonCadastrarActionPerformed
 
@@ -230,8 +221,8 @@ public class CadastroUsuario extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;
     private javax.swing.JLabel jLabel7;
-    private javax.swing.JTextField jTextFieldConfirmar;
-    private javax.swing.JTextField jTextFieldSenha;
+    private javax.swing.JPasswordField jTextFieldConfirmar;
+    private javax.swing.JPasswordField jTextFieldSenha;
     private javax.swing.JTextField jTextFieldUsuario;
     // End of variables declaration//GEN-END:variables
 }
