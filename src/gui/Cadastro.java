@@ -268,23 +268,24 @@ public class Cadastro extends javax.swing.JFrame {
 
             JOptionPane.showMessageDialog(rootPane, "Os campos não podem retornar vazios");
 
-        } else {
+        } else 
             if ((jTextFieldNome.getText().isEmpty())) {
 
                 JOptionPane.showMessageDialog(rootPane, "O campo NOME não pode retornar vazio");
-            }
-            if ((jTextFieldEndereco.getText().isEmpty())) {
+            } else 
+                if ((jTextFieldEndereco.getText().isEmpty())) {
 
-                JOptionPane.showMessageDialog(rootPane, "O campo ENDEREÇO não pode retornar vazio");
+                    JOptionPane.showMessageDialog(rootPane, "O campo ENDEREÇO não pode retornar vazio");
 
-            }
-            if ((jTextFieldTelefone1.getText().equals("     -     "))) {
+                } else 
+                    if ((jTextFieldTelefone1.getText().equals("     -     "))) {
 
-                JOptionPane.showMessageDialog(rootPane, "O campo TELEFONE 1 não pode retornar vazio");
-            }
-            if ((jTextFieldCpf.getText().equals("   .   .   -  "))) {
+                        JOptionPane.showMessageDialog(rootPane, "O campo TELEFONE 1 não pode retornar vazio");
+                    } else {
+                        if ((jTextFieldCpf.getText().equals("   .   .   -  "))) {
 
-                JOptionPane.showMessageDialog(rootPane, "O campo CPF não pode retornar vazio");
+                            JOptionPane.showMessageDialog(rootPane, "O campo CPF não pode retornar vazio");
+
 
             } else {
                 if (!(new CPF(jTextFieldCpf.getText())).isValidCPF()) {
