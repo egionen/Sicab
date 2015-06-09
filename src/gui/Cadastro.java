@@ -281,7 +281,11 @@ public class Cadastro extends javax.swing.JFrame {
                     if ((jTextFieldTelefone1.getText().equals("     -     "))) {
 
                         JOptionPane.showMessageDialog(rootPane, "O campo TELEFONE 1 não pode retornar vazio");
-                    } else {
+                    } else 
+                        if ((jTextFieldTelefone1.getText().equals("     -     "))) {
+
+                        JOptionPane.showMessageDialog(rootPane, "O campo TELEFONE 1 não pode retornar vazio");
+                        }else{
                         if ((jTextFieldCpf.getText().equals("   .   .   -  "))) {
 
                             JOptionPane.showMessageDialog(rootPane, "O campo CPF não pode retornar vazio");
