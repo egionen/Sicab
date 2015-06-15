@@ -19,7 +19,6 @@ public class UsuarioDAO {
     String telefone1;
     String telefone2;
     String endereco;
-   
 
     public UsuarioDAO() {
         this.connection = new ConnectionFactory().getConnection();
@@ -46,76 +45,5 @@ public class UsuarioDAO {
 
         }
     }
-    
-  
 
-    /* public boolean excluirClientes(Usuarios usuario) {
-        String sql = "DELETE from Usuarios where telefone1=?";
-        PreparedStatement stmt = null;
-        try {
-            stmt = connection.prepareStatement(sql);
-
-            stmt.setString(4, usuario.getTelefone1());
-
-            stmt.execute();
-            return true;
-        } catch (SQLException u) {
-            throw new RuntimeException(u);
-
-        } finally {
-            try {
-                connection.close();
-            } catch (SQLException ex) {
-                Logger.getLogger(UsuarioDAO.class.getName()).log(Level.SEVERE, null, ex);
-            }
-        }
-    }
-
-    public void alterarClientes(Usuarios usuario) throws SQLException {
-        String sql = "UPDATE Usuarios SET nome=? where matricula=?";
-        PreparedStatement stmt = null;
-        try {
-            stmt = connection.prepareStatement(sql);
-            stmt.setString(1, usuario.getNome());
-            stmt.setInt(matricula, usuario.getMatricula());
-
-            stmt.execute();
-        } catch (SQLException u) {
-            throw new RuntimeException(u);
-
-        } finally {
-            connection.close();
-        }
-    }
-    
-
-      /*public static void pesquisaClientes(String text) throws ClassNotFoundException {
-        String busca = null;
-        String sql = "SELECT * from usuarios where telefone1 like "+busca+" order by nome";
-        
-         
-           try {
-            
-            Class.forName("com.mysql.jdbc.Driver");
-
-            Connection conn = DriverManager.getConnection("jdbc:mysql://db4free.net:3306/sica?zeroDateTimeBehavior=convertToNull", "sica", "1122448816");
- 
-           }catch (SQLException u) {
-            throw new RuntimeException(u);
-           }   */
-               public void pesquisarClientes(Usuarios usuario){  
-              String sql = "SELECT * from Usuarios where telefone1 = ?";  
-            try {  
-                  try (PreparedStatement stmt = connection.prepareStatement(sql)) {
-                      stmt.setString(4, usuario.getTelefone1());
-                      ResultSet rs = stmt.executeQuery();
-                      if(rs.next()){
-                          usuario.setTelefone1(rs.getString("Telefone"));
-                      } }  
-            } catch (SQLException e) {  
-                throw new RuntimeException("Erro no sql: " + e.getMessage());  
-            }  
-        }  
-    
-    }
-
+}
