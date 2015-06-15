@@ -26,10 +26,6 @@ public class CPF {
       return cpf.equals(cpf.substring(0,3) +"."+ cpf.substring(4,7) +"."+ cpf.substring(8,11) +"-"+ digito1.toString() + digito2.toString());
    }
 
-   /*
-   public static void main(String[] args) {
-      System.out.printf("CPF Valido:%s \n", CNP.isValidCPF("05123140127")); 
-     
-   }*/
+
 }
 
