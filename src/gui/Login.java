@@ -158,7 +158,7 @@ public class Login extends javax.swing.JFrame {
             try {
 
                 Class.forName("com.mysql.jdbc.Driver");
-                Connection conn = DriverManager.getConnection("jdbc:mysql://db4free.net:3306/sica?zeroDateTimeBehavior=convertToNull", "sica", "1122448816");
+                Connection conn = DriverManager.getConnection("jdbc:mysql://localhost/sica", "root", "1122448816");
 
                 java.sql.Statement st = conn.createStatement();
                 st.executeQuery("Select * FROM Logins WHERE usuario='" + this.jTextFieldUsuario.getText() + "'");

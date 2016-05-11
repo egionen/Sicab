@@ -43,13 +43,26 @@ public class Busca extends javax.swing.JFrame {
     private void initComponents() {
         bindingGroup = new org.jdesktop.beansbinding.BindingGroup();
 
-        entityManager = java.beans.Beans.isDesignTime() ? null : javax.persistence.Persistence.createEntityManagerFactory("Sicab0.5PU").createEntityManager();
+        entityManager = java.beans.Beans.isDesignTime() ? null : javax.persistence.Persistence.createEntityManagerFactory("Sicab2.0PU").createEntityManager();
         usuariosQuery = java.beans.Beans.isDesignTime() ? null : entityManager.createQuery("SELECT u FROM Usuarios u");
         usuariosList = java.beans.Beans.isDesignTime() ? java.util.Collections.emptyList() : usuariosQuery.getResultList();
         menuBar1 = new java.awt.MenuBar();
         menu1 = new java.awt.Menu();
         menu2 = new java.awt.Menu();
         popupMenu1 = new java.awt.PopupMenu();
+        entityManager0 = java.beans.Beans.isDesignTime() ? null : javax.persistence.Persistence.createEntityManagerFactory("Sicab2.0PU").createEntityManager();
+        usuariosQuery1 = java.beans.Beans.isDesignTime() ? null : entityManager0.createQuery("SELECT u FROM Usuarios u");
+        usuariosList1 = java.beans.Beans.isDesignTime() ? java.util.Collections.emptyList() : usuariosQuery1.getResultList();
+        usuariosQuery2 = java.beans.Beans.isDesignTime() ? null : entityManager0.createQuery("SELECT u FROM Usuarios u");
+        usuariosList2 = java.beans.Beans.isDesignTime() ? java.util.Collections.emptyList() : usuariosQuery2.getResultList();
+        usuariosQuery3 = java.beans.Beans.isDesignTime() ? null : entityManager0.createQuery("SELECT u FROM Usuarios u");
+        usuariosList3 = java.beans.Beans.isDesignTime() ? java.util.Collections.emptyList() : usuariosQuery3.getResultList();
+        usuariosQuery4 = java.beans.Beans.isDesignTime() ? null : entityManager0.createQuery("SELECT u FROM Usuarios u");
+        usuariosList4 = java.beans.Beans.isDesignTime() ? java.util.Collections.emptyList() : usuariosQuery4.getResultList();
+        usuariosQuery5 = java.beans.Beans.isDesignTime() ? null : entityManager0.createQuery("SELECT u FROM Usuarios u");
+        usuariosList5 = java.beans.Beans.isDesignTime() ? java.util.Collections.emptyList() : usuariosQuery5.getResultList();
+        usuariosQuery6 = java.beans.Beans.isDesignTime() ? null : entityManager0.createQuery("SELECT u FROM Usuarios u");
+        usuariosList6 = java.beans.Beans.isDesignTime() ? java.util.Collections.emptyList() : usuariosQuery6.getResultList();
         jScrollPane1 = new javax.swing.JScrollPane();
         jTable1 = new javax.swing.JTable();
         jTextFieldBusca = new javax.swing.JTextField();
@@ -80,27 +93,23 @@ public class Busca extends javax.swing.JFrame {
         setResizable(false);
         getContentPane().setLayout(null);
 
-        org.jdesktop.swingbinding.JTableBinding jTableBinding = org.jdesktop.swingbinding.SwingBindings.createJTableBinding(org.jdesktop.beansbinding.AutoBinding.UpdateStrategy.READ_WRITE, usuariosList, jTable1);
-        org.jdesktop.swingbinding.JTableBinding.ColumnBinding columnBinding = jTableBinding.addColumnBinding(org.jdesktop.beansbinding.ELProperty.create("${matricula}"));
-        columnBinding.setColumnName("Matricula");
-        columnBinding.setColumnClass(Short.class);
-        columnBinding = jTableBinding.addColumnBinding(org.jdesktop.beansbinding.ELProperty.create("${nome}"));
+        org.jdesktop.swingbinding.JTableBinding jTableBinding = org.jdesktop.swingbinding.SwingBindings.createJTableBinding(org.jdesktop.beansbinding.AutoBinding.UpdateStrategy.READ_WRITE, usuariosList6, jTable1);
+        org.jdesktop.swingbinding.JTableBinding.ColumnBinding columnBinding = jTableBinding.addColumnBinding(org.jdesktop.beansbinding.ELProperty.create("${nome}"));
         columnBinding.setColumnName("Nome");
         columnBinding.setColumnClass(String.class);
         columnBinding = jTableBinding.addColumnBinding(org.jdesktop.beansbinding.ELProperty.create("${cpf}"));
-        columnBinding.setColumnName("Cpf");
-        columnBinding.setColumnClass(String.class);
-        columnBinding = jTableBinding.addColumnBinding(org.jdesktop.beansbinding.ELProperty.create("${plano}"));
-        columnBinding.setColumnName("Plano");
+        columnBinding.setColumnName("CPF");
         columnBinding.setColumnClass(String.class);
         columnBinding = jTableBinding.addColumnBinding(org.jdesktop.beansbinding.ELProperty.create("${telefone1}"));
-        columnBinding.setColumnName("Telefone1");
+        columnBinding.setColumnName("Telefone");
         columnBinding.setColumnClass(String.class);
         columnBinding = jTableBinding.addColumnBinding(org.jdesktop.beansbinding.ELProperty.create("${telefone2}"));
-        columnBinding.setColumnName("Telefone2");
+        columnBinding.setColumnName("Telefone");
         columnBinding.setColumnClass(String.class);
         columnBinding = jTableBinding.addColumnBinding(org.jdesktop.beansbinding.ELProperty.create("${endereço}"));
         columnBinding.setColumnName("Endereço");
+        columnBinding.setColumnClass(String.class);
+        columnBinding = jTableBinding.addColumnBinding(org.jdesktop.beansbinding.ELProperty.create("${plano}"));
         columnBinding.setColumnClass(String.class);
         bindingGroup.addBinding(jTableBinding);
         jTableBinding.bind();
@@ -167,7 +176,7 @@ public class Busca extends javax.swing.JFrame {
 
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
         String nome = null;
-        entityManager = java.beans.Beans.isDesignTime() ? null : javax.persistence.Persistence.createEntityManagerFactory("Sicab0.5PU").createEntityManager();
+        entityManager = java.beans.Beans.isDesignTime() ? null : javax.persistence.Persistence.createEntityManagerFactory("Sicab2.0PU").createEntityManager();
         usuariosQuery = java.beans.Beans.isDesignTime() ? null : entityManager.createQuery("SELECT u FROM Usuarios u WHERE u.telefone1 = \""+ jTextFieldBusca.getText()+"\" OR u.telefone2 = \""+ jTextFieldBusca.getText()+"\"");
         usuariosList = java.beans.Beans.isDesignTime() ? java.util.Collections.emptyList() : usuariosQuery.getResultList();
        
@@ -210,7 +219,7 @@ public class Busca extends javax.swing.JFrame {
     private void jButtonLimparActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonLimparActionPerformed
         
         jTextFieldBusca.setText("");
-         entityManager = java.beans.Beans.isDesignTime() ? null : javax.persistence.Persistence.createEntityManagerFactory("Sicab0.5PU").createEntityManager();
+         entityManager = java.beans.Beans.isDesignTime() ? null : javax.persistence.Persistence.createEntityManagerFactory("Sicab2.0PU").createEntityManager();
         usuariosQuery = java.beans.Beans.isDesignTime() ? null : entityManager.createQuery("SELECT u FROM Usuarios u");
         usuariosList = java.beans.Beans.isDesignTime() ? java.util.Collections.emptyList() : usuariosQuery.getResultList();
         org.jdesktop.swingbinding.JTableBinding jTableBinding = org.jdesktop.swingbinding.SwingBindings.createJTableBinding(org.jdesktop.beansbinding.AutoBinding.UpdateStrategy.READ_WRITE, usuariosList, jTable1);
@@ -278,6 +287,7 @@ public class Busca extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.persistence.EntityManager entityManager;
+    private javax.persistence.EntityManager entityManager0;
     private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton2;
     private javax.swing.JButton jButtonLimpar;
@@ -291,7 +301,19 @@ public class Busca extends javax.swing.JFrame {
     private java.awt.MenuBar menuBar1;
     private java.awt.PopupMenu popupMenu1;
     private java.util.List<controle.Usuarios> usuariosList;
+    private java.util.List<gui.Usuarios> usuariosList1;
+    private java.util.List<gui.Usuarios> usuariosList2;
+    private java.util.List<gui.Usuarios> usuariosList3;
+    private java.util.List<gui.Usuarios> usuariosList4;
+    private java.util.List<gui.Usuarios> usuariosList5;
+    private java.util.List<gui.Usuarios> usuariosList6;
     private javax.persistence.Query usuariosQuery;
+    private javax.persistence.Query usuariosQuery1;
+    private javax.persistence.Query usuariosQuery2;
+    private javax.persistence.Query usuariosQuery3;
+    private javax.persistence.Query usuariosQuery4;
+    private javax.persistence.Query usuariosQuery5;
+    private javax.persistence.Query usuariosQuery6;
     private org.jdesktop.beansbinding.BindingGroup bindingGroup;
     // End of variables declaration//GEN-END:variables
 

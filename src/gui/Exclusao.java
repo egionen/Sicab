@@ -114,7 +114,7 @@ public class Exclusao extends javax.swing.JFrame {
             Class.forName("com.mysql.jdbc.Driver");
 
             //Abrindo a conexão
-            Connection conn = DriverManager.getConnection("jdbc:mysql://db4free.net:3306/sica?zeroDateTimeBehavior=convertToNull", "sica", "1122448816");
+            Connection conn = DriverManager.getConnection("jdbc:mysql://localhost/sica","root","1122448816");
 
             //Executa a query de exclusão
             java.sql.Statement st = conn.createStatement();

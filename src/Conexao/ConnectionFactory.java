@@ -12,7 +12,7 @@ import java.sql.SQLException; // classe para tratamento de exceções
 public class ConnectionFactory {
     public Connection getConnection() {
         try {
-            return DriverManager.getConnection("jdbc:mysql://db4free.net:3306/sica?zeroDateTimeBehavior=convertToNull","sica","1122448816");
+            return DriverManager.getConnection("jdbc:mysql://localhost/sica","root","1122448816");
         }
         catch(SQLException excecao) {
             throw new RuntimeException(excecao);
